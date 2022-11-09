@@ -37,6 +37,8 @@
             <input name="ho_ten"    placeholder="Họ và tên" value="<?=$ho_ten?>">
             <input name="email"  type="email"  placeholder="Email"  value="<?=$email?>">
             <input name="mat_khau" type="password" placeholder="Mật khẩu"  value="<?=$mat_khau?>">
+			<input name="vai_tro" value="khachhang" type="hidden">
+            <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;" type="submit">ĐĂNG KÝ</button>
 		</form>
 	</div>

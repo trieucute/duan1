@@ -8,6 +8,7 @@ require_once "../../dao/pdo.php";
 extract($_REQUEST);
 echo $ma_hh;  
 $hang_hoa = sp_load($ma_hh);
+// print_r($hang_hoa);
 extract($hang_hoa);
 
 tang_lx($ma_hh);

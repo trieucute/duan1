@@ -28,7 +28,7 @@ if(exist_param("dang-ky")){
         // $hinh = $file_name?$file_name:"user.png";
      
         try {
-            khachhang_insert($mat_khau, $ho_ten, $email);
+            khachhang_insert( $mat_khau, $ho_ten, $email,$vai_tro,$kich_hoat);
             $thongbao= "Đăng ký thành viên thành công!";
             
         } 
@@ -112,21 +112,4 @@ if(exist_param('infor')){
     
 require '../layout.php';?>
 
-                            <!-- "ma_kh":{
-                                required:"Mời nhập tên đăng nhâp",
-                                maxlength:"Hãy nhập tối đa 13 ký tự"
-                            },
-                            "ma_kh":{
-                                required:"Mời nhập mật khẩu",
-                                maxlength:"Hãy nhập tối thiểu 8 ký tự"
-                            },
-                            "mat_khau2":{
-                                equalTo:"Xác nhận mật khẩu sai",
-                                maxlength:"Hãy nhập tối đa 13 ký tự"
-                            },
-                            "email":{
-                                required:"Mời nhập email",
-                                maxlength:"Hãy nhập đúng định dạng email"
-                        -->
- 
-  
+                 

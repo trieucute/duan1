@@ -15,10 +15,12 @@
             <div class="flex-row-sp">
                 <div class="row-sp">      
                     <a href="../ct_san_pham/chi-tiet.php?ma_hh=<?=$hh['ma_hh']?>" class="sp">
-                    <img src="<?=$img_path?><?php echo $hh['hinh']?>" height= "250" width="100%" >
+                    <img src="<?=$img_path?><?php echo $hh['hinh1']?>" height= "250" width="100%" >
+           <img class="hover-img" src="<?=$img_path?><?php echo $hh['hinh2']?>" height= "250" width="100%" >
+
                     <h5><?=$hh['ten_hh']?> </h5>
                     
-                    <div class="gia"> <?=number_format($hh['don_gia'],0,",",".")?></div>
+                    <div class="gia"> <?=number_format($hh['don_gia'],0,",",".")?>đ</div>
            
              
                   </a>

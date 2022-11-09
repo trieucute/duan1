@@ -25,7 +25,7 @@
             <div class="panel-footer">
             <?php
                 if(!isset($_SESSION['user'])){
-                    echo '<b class="text-danger text-center mg-auto d-block fw-bold fs-5 rounded-bottom " style="font-family: Mergeblack;"><a href="" style="color:red;     text-decoration: none; fon-weight:bold;">Đăng nhập</a> để bình luận về sản phẩm này</b>';
+                    echo '<b class="text-danger text-center mg-auto d-block fw-bold fs-5 rounded-bottom " style="font-family: Mergeblack;"><a href="../taikhoan/dangnhap.php" style="color:red;     text-decoration: none; fon-weight:bold;">Đăng nhập</a> để bình luận về sản phẩm này</b>';
                 }else{
             ?>
                 <form action="<?=$_SERVER["REQUEST_URI"]?>" method="post">

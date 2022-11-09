@@ -30,7 +30,7 @@
       <div class="row mb-4">
         <div class="col-lg-5">
           <img
-            src="<?=$img_path?><?=$hinh ?>"
+            src="<?=$img_path?><?=$hinh1 ?>"
             alt=""
             srcset=""
             class=" main-img img-fluid w-100 rounded-2"
@@ -40,7 +40,7 @@
         </div>
         <div class="small-img-group col-lg-1 p-0 d-flex flex-column gap-1">
           <img
-            src="<?=$img_path?><?=$hinh ?>"
+            src="<?=$img_path?><?=$hinh1 ?>"
             alt=""
             srcset=""
             height="18%"

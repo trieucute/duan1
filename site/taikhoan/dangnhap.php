@@ -99,7 +99,7 @@ if(exist_param('infor')){
             $hinh = $file_name?$file_name:"user.png";
          
             try {
-                khachhang_insert($mat_khau, $ho_ten, $email);
+                khachhang_insert( $mat_khau, $ho_ten, $email,$vai_tro,$kich_hoat);
                 $thongbao= "Đăng ký thành viên thành công!";
                 
             } 
