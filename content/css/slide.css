@@ -28,7 +28,10 @@
     --font-family-sans-serif: "Poppins", sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
-
+@font-face {
+    font-family: Mergeblack;
+    src: url(../MergeBlack.woff);
+}
 *,
 *::before,
 *::after {
@@ -36,7 +39,8 @@
 }
 
 html {
-    font-family: sans-serif;
+    font-family: Mergeblack;
+
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
@@ -57,7 +61,8 @@ section {
 
 body {
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: Mergeblack;
+
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -159,13 +164,13 @@ sup {
 }
 
 a {
-    color: #D19C97;
+    /* color: #D19C97; */
     text-decoration: none;
     background-color: transparent
 }
 
 a:hover {
-    color: #ba6a62;
+    /* color: #ba6a62; */
     text-decoration: underline
 }
 
@@ -183,7 +188,8 @@ pre,
 code,
 kbd,
 samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Mergeblack;
+
     font-size: 1em
 }
 
@@ -379,7 +385,7 @@ h6,
 .h5,
 .h6 {
     margin-bottom: .5rem;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.2;
     color: #1C1C1C
 }
@@ -423,10 +429,10 @@ h3,
     }
 }
 
-h4,
+/* h4,
 .h4 {
-    font-size: 1.5rem
-}
+    font-size: 5rem
+} */
 
 @media (max-width: 1200px) {
 
@@ -488,8 +494,8 @@ h6,
 }
 
 .display-4 {
-    font-size: 3.5rem;
-    font-weight: 300;
+    font-size: 2.5rem;
+    /* font-weight: 300; */
     line-height: 1.2
 }
 
@@ -6429,7 +6435,9 @@ a.close.disabled {
 
 .carousel-inner {
     position: relative;
-    width: 100%;
+    width: 98%;
+    margin: 5px auto;
+    border-radius: 15px;
     overflow: hidden
 }
 
@@ -10624,11 +10632,11 @@ a.text-dark:focus {
 }
 
 .font-weight-medium {
-    font-weight: 500
+    font-weight: 200
 }
 
 .font-weight-semi-bold {
-    font-weight: 600
+    font-weight: 200
 }
 
 [class^=flaticon-]:before,
@@ -10672,7 +10680,7 @@ a.text-dark:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1
 }
 
