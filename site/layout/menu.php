@@ -112,14 +112,25 @@ z-index: 200;
             </ul>
             <div class="user_option-box">
             <form class="search" action="../sanpham/shop.php" method="POST">
-              <input type="search" name="search" id="input_search" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
+              <input type="search" name="search" id="input_search" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" style="filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));" />
               <div class="input-group-prepend">
                 <a href=""><button class="btn btn_search" type="submit"><i class="fas fa-search"></i></button></a>
               </div>
             </form>
                     <?php  if(isset($_SESSION['user']['email']) && ($_SESSION['user']['email'])!=""){?>
-              <a href="../taikhoan/dangnhap-inf.php">
-              <i class="fa fa-user" aria-hidden="true"></i>
+              <a href="../taikhoan/dangnhap.php?infor" style="border-radius:100%">
+              <?php
+                if(isset($_SESSION['user']['hinh'])){ ?>
+                 
+                 <img src="<?=$img_path?><?=$_SESSION['user']['hinh'] ?>" width='30' height='30' style='clip-path: circle(50%);    object-fit: cover;'>
+                  
+                <?php }else{?>
+              <i class="fa fa-user" aria-hidden="true"  ></i>
+                
+                  
+
+                <?php }?>
+              </a>
               <?php }else{
                 ?><a href="../taikhoan/dangnhap.php">LOGIN</a>
           

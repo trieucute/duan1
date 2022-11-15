@@ -28,22 +28,26 @@ if(exist_param("dang-ky")){
         // $hinh = $file_name?$file_name:"user.png";
      
         try {
-            khachhang_insert( $mat_khau, $ho_ten, $email,$vai_tro,$kich_hoat);
+            khachhang_insert( $mat_khau, $email,$vai_tro,$ho_ten);
+           
+            khachhang_mauser();
+
             $thongbao= "Đăng ký thành viên thành công!";
             
         } 
         catch (Exception $exc) {
-    
+            // print_r($exc);
+            // print_r($khachhang_insert);
             $thongbao= "Đăng ký thành viên thất bại!";
         }
     }
 }
 else{
-    global $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro;
+    global $mat_khau, $ho_ten, $email, $hinh,  $vai_tro;
 }
 if(exist_param("dang-nhap")){
 
-    $user = khach_hang_select_by_id($email);
+    $user = khach_hang_select_by_ma($ma_user,$email);
    
     if($user){
        
@@ -58,7 +62,7 @@ if(exist_param("dang-nhap")){
                 delete_cookie("email");
                 delete_cookie("mat_khau");
             }
-            $_SESSION["user"] = $user;
+            $_SESSION["user"] =  khach_hang_select_by_ma($ma_user,$email);
             
             if(isset($_SESSION['request_uri'])){
                 header("location: " . $_SESSION['request_uri']);
@@ -103,13 +107,13 @@ else{
 
 
 
+
+
 $VIEW_NAME="taikhoan/dangky-form.php";
 if(exist_param('infor')){
-    $VIEW_NAME="taikhoan//dangnhap-inf.php";
+    $VIEW_NAME="taikhoan/dangnhap-inf.php";
     
     }
-
-    
 require '../layout.php';?>
 
                  

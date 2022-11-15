@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <div class=" d-flex ">
                             <div  class="col-sm-11 px-0">
-                                <input style="background-color: #F5F5F5 ;" name="noi_dung" class="form-control rounded-3"/>
+                                <input style="background-color: #F5F5F5 ;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);" name="noi_dung" class="form-control rounded-3"/>
                             </div>
                             <div style="padding-left: 5px !important;" class="col-sm-1 px-0">
                                 <button style="background-color: #F5F5F5 ;" class="btn btn-secondary w-100  text-dark fw-bold" >Gửi</button>

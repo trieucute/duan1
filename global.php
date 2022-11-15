@@ -2,7 +2,7 @@
   <?php 
 session_start();
 // Định nghĩa các url cần thiết được sử dụng trong website
-$ROOT_URL = "/du_an1"; //đường dẫn gốc của website
+$ROOT_URL = "/duan1"; //đường dẫn gốc của website
 $CONTENT_URL = "$ROOT_URL/content"; //đường dẫn chứa tài nguyên tĩnh (img, css, js)
 $ADMIN_URL = "$ROOT_URL/admin"; //đườnf dẫn vào phần quản trị
 $SITE_URL = "$ROOT_URL/site"; //đường dẫn vào ohần site
@@ -54,7 +54,7 @@ function get_cookie($name){
 function  check_login(){
     global $SITE_URL;
     if(isset($_SESSION['user'])){
-        if($_SESSION['user']['vai_tro'] == 1){
+        if(($_SESSION['user']['vai_tro'] == 'admin' ) || ($_SESSION['user']['vai_tro'] == 'nhanvien' )){
             return;
         }
         if(strpos($_SERVER["REQUEST_URI"], '/admin/') == FALSE){
@@ -62,5 +62,5 @@ function  check_login(){
         }
     }
     $_SESSION['request_uri'] = $_SERVER["REQUEST_URI"];
-    header("location: $SITE_URL/tai-khoan/dangnhap.php");
+    header("location: $SITE_URL/taikhoan/dangnhap.php");
 }

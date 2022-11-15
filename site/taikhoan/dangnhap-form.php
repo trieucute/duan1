@@ -23,7 +23,7 @@
 			<span>Hoặc đăng ký tài khoản của bạn</span>
             <input name="ho_ten"   placeholder="Họ và tên" value="<?=$ho_ten?>">
             <input name="email" type="email"  placeholder="Email"  value="<?=$email?>">
-            <input name="mat_khau" type="password"  placeholder="Mật khẩu"  value="<?=$mat_khau?>">
+            <input name="mat_khau" type="password"  placeholder="Mật khẩu"  value="<?=$mat_khau?>" minlength="8">
 			<input name="vai_tro" value="khachhang" type="hidden">
             <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;">ĐĂNG KÝ</button>
@@ -40,10 +40,10 @@
 			<span>Hoặc sử dụng tài khoản của bạn</span>
             <input name="email" type="email" placeholder="Email" value="<?=$email?>">
             
-            <input name="mat_khau" type="password"  value=""placeholder="Mật khẩu" >
+            <input name="mat_khau" type="password"  value=""placeholder="Mật khẩu" minlength="8">
             <!-- <input name="ghi_nho" type="checkbox" width="10%;" ><span style="float: ;left">Ghi nhớ tài khoản?</span>  -->
-                 
-			<a href="#">Quên mật khẩu?</a>
+			<input name="ma_user" value="<?=$ma_user?>" hidden>
+			<a href="../taikhoan/quenmk.php">Quên mật khẩu?</a>
 			<button name="dang-nhap"style="margin-top: 10px;">Đăng nhập</button>
 		</form>
 	</div>
@@ -74,6 +74,7 @@ signUpButton.addEventListener('click', () => {
 
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
+	
 	
 
 });

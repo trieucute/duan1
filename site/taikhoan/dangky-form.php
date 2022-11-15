@@ -15,6 +15,8 @@
 	opacity: 1;
 	display: block;
 
+
+
 }
 .container-login.right-panel-active .sign-in-container {
 	transform: translateX(100%);
@@ -36,7 +38,8 @@
 			<span>Hoặc đăng ký tài khoản của bạn</span>
             <input name="ho_ten"    placeholder="Họ và tên" value="<?=$ho_ten?>">
             <input name="email"  type="email"  placeholder="Email"  value="<?=$email?>">
-            <input name="mat_khau" type="password" placeholder="Mật khẩu"  value="<?=$mat_khau?>">
+            <input name="mat_khau" type="password" placeholder="Mật khẩu"  value="<?=$mat_khau?>" minlength="8">
+			<input type="text" name="ma_user" id="" hidden>
 			<input name="vai_tro" value="khachhang" type="hidden">
             <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;" type="submit">ĐĂNG KÝ</button>
@@ -53,7 +56,7 @@
 			<span>Hoặc sử dụng tài khoản của bạn</span>
             <input name="email"  type="email" placeholder="Email" value="<?=$email?>">
             
-            <input name="mat_khau" type="password"  value=""placeholder="Mật khẩu"   value="<?=$mat_khau?>">
+            <input name="mat_khau" type="password"  value=""placeholder="Mật khẩu"   value="<?=$mat_khau?>" minlength="8">
             <!-- <input name="ghi_nho" type="checkbox" width="10%;" ><span style="float: ;left">Ghi nhớ tài khoản?</span>  -->
                  
 			<a href="#">Quên mật khẩu?</a>
@@ -71,7 +74,7 @@
 			<div class="overlay-panel overlay-right">
 				<h2>Xin chào, bạn!</h2>
 				<p>   Nhập thông tin cá nhân của bạn và bắt đầu hành trình đăng ký với chúng tôi</p>
-				<button class="ghost" id="signUp"   >ĐĂNG KÝ</button>
+				<button class="ghost" id="signUp"  >ĐĂNG KÝ</button>
 			</div>
 		</div>
 	</div>
@@ -86,9 +89,7 @@ signUpButton.addEventListener('click', () => {
 });
 
 signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-	
-
+	container.classList.remove("right-panel-active")
 });
 </script>
 <div class="thongbao" style="text-align:center;font-family: Mergeblack; ">

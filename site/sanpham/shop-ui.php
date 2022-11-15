@@ -19,17 +19,46 @@
             </div>
             <div class="row-loc2">
                 <form action="shop.php" method="POST">
-                    <select name="filterr" id="">
-                    <option value="default" >Mặc định</option>
-                <option value="low_to_high">Thấp -> cao</option>
-                <option value="high_to_low">Cao -> thấp</option>
-                <option value="men" name="men">Nam</option>
-                <option value="women" name="men">Nữ</option>
-                <option value="unisex">Unisex</option>
+             
+                <select name="sex" id="">
+                    <option value="default"  >Mặc định</option>
+                    <option value="low_to_high" name="thap">Thấp -> cao</option>
+                    <option value="high_to_low" name="cao">Cao -> thấp</option>
+                    <option value="nam"   name="sex"  >Nam</option>
+                    <option value="nu" name="sex">Nữ</option>
+                    <option value="unisex" name="sex">Unisex</option>
 
 
                     </select>
-                    <button type="submit"  name="filter" > Lọc</button>
+                    <button type="submit" > Lọc</button>
+                              <!-- <input name="sex" id="input_search" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" value="nam" hidden/>
+                              <div class="input-group-prepend">
+                                <a href=""><button class="btn btn_search" type="submit" value="Nam" style="color:black;font-size:17px ">Nam</button></a>
+                                
+                               
+                              </div>
+                            </form>
+                            <form class="sex" action="../sanpham/shop.php" method="POST">
+                              <input name="sex" id="input_search" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" value="nu" hidden/>
+                              <div class="input-group-prepend">
+                                
+                                
+                                <a href=""><button class="btn btn_search" type="submit" value="Nữ"  style="color:black;font-size:17px">Nữ</button></a>
+                         
+
+                              </div>
+                            </form>
+                            <form class="sex" action="../sanpham/shop.php" method="POST">
+                              <input name="sex" id="input_search" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" value="unisex" hidden/>
+                              <div class="input-group-prepend">
+                                
+                                
+                                <a href=""><button class="btn btn_search" type="submit" value="Unisex"  style="color:black;font-size:17px">Unisex</button></a>
+                         
+
+                              </div>
+                            </form> -->
+                
                 </form>
             </div>
         </div>

@@ -41,14 +41,17 @@ if(exist_param("dang-nhap")){
             $thongbao= "Vui lòng nhập tên email";
         }else if(empty($mat_khau)){
             $thongbao= "Vui lòng nhập mật khẩu";
-        }else{
-             $thongbao= "Sai email!";
         }
+        var_dump($email);
+        $thongbao= "Sai email! <p>    <span> <a href='../taikhoan/dangky.php'> Đăng ký </a>nếu bạn chưa có tài khoản</span> <br/> </p> ";
+
+        
        
     }
 }
 
 else{
+    
 
     if(exist_param("btn_logoff")){
     
@@ -69,10 +72,7 @@ else{
 
 // $VIEW_NAME="login/dangnhap-form.php";
 
-if(exist_param('infor')){
-    $VIEW_NAME="login/dangnhap-inf.php";
-    
-    }
+
 
     
     if(exist_param("dang-ky")){
@@ -99,7 +99,7 @@ if(exist_param('infor')){
             $hinh = $file_name?$file_name:"user.png";
          
             try {
-                khachhang_insert( $mat_khau, $ho_ten, $email,$vai_tro,$kich_hoat);
+                khachhang_insert( $mat_khau, $ho_ten, $email,$vai_tro);
                 $thongbao= "Đăng ký thành viên thành công!";
                 
             } 
@@ -110,10 +110,14 @@ if(exist_param('infor')){
         }
     }
     else{
-        global $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro;
+        global $mat_khau, $ho_ten, $email, $hinh, $vai_tro;
     }
 
 
 
     $VIEW_NAME="taikhoan/dangnhap-form.php";
+    if(exist_param('infor')){
+        $VIEW_NAME="taikhoan/dangnhap-inf.php";
+        
+        }
 require_once "../layout.php";

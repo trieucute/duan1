@@ -21,11 +21,11 @@
                 <h4>Cuộc săn lùng của bạn cho <b>Áo khoác da</b> <br> hoàn hảo <a href="../ct_san_pham/chi-tiet.php?ma_hh=2">tại đây</a> </h4>
             </div>
             <div class='btn-cont'>
-                <div class="line-content">
+                <!-- <div class="line-content">
                 <span class="line-top"></span>
                 <span class="line-right"></span>
                 <span class="line-bot"></span>
-            </div>
+            </div> -->
                 <a class='btn' href='../ct_san_pham/chi-tiet.php?ma_hh=2'>
                   Mua Ngay
                

@@ -16,6 +16,11 @@
     }else if(exist_param("sex")){
         $sp=kq_timkiem_sex($sex);
     }
+//     else if(exist_param("cao")){
+//             $sp= load_sp_HighToLow();
+//     }else if(exist_param("thap")){
+//         $sp= load_sp_LowToHigh();
+// }
     
 
 //     if (exist_param('filter')== "men") {
