@@ -19,9 +19,29 @@ if(exist_param("btn_forgot")){
             $thongbao= "Sai địa chỉ email!";
         }
         else{
-            $mat_khau_moi= substr(md5(rand (0,999999)),0,8);
+               // Mã hoá Mat khau
+               $key = 'qkwjdiw239&&jdafwe^%$ggdnawhd4njshjw3123123^&*^#!@#uuO';
+               function encryptthis($mat_khau, $key)
+               {
+                   $encryption_key = base64_decode($key);
+                   $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+                   $encrypted = openssl_encrypt($mat_khau, 'aes-256-cbc', $encryption_key, 0, $iv);
+                   return base64_encode($encrypted . '::' . $iv);
+               }
+               // khach_hang_insert_ho_ten($ho_ten);
+         function decryptthis($mat_khau, $key)
+         {
+             $encryption_key = base64_decode($key);
+             list($encrypted_data, $iv) = array_pad(explode('::', base64_decode($mat_khau), 2), 2, null);
+             return openssl_decrypt($encrypted_data, 'aes-256-cbc', $encryption_key, 0, $iv);
+         }
+            //    $mat_khau_moi = $_POST['mat_khau'];
+            $mat_khau_moi= substr((rand (0,999999)),0,10);
+               $mat_khau_moi = trim(encryptthis($mat_khau_moi, $key));
+      
             $sql= "update user set mat_khau = '$mat_khau_moi' where email='$email'";
             pdo_execute($sql);
+            $mat_khau_moi = trim(decryptthis($mat_khau_moi, $key));
              $kq= gui_email($email,$mat_khau_moi);
              if($kq==true){
                 $thongbao= "Đã gửi email thành công
@@ -34,13 +54,14 @@ if(exist_param("btn_forgot")){
         }
     }
     else{
-        $thongbao= "Sai tên đăng nhập!";
+        $thongbao= "Sai địa chỉ email!<p>  <a href='../taikhoan/dangky.php''>Đăng ký</a> nếu bạn chưa có tài khoản </p>";
     }
 }
 
 require '../layout.php';
 
 function gui_email($email,$mat_khau_moi){
+    
     require "PHPMailer/src/PHPMailer.php"; 
     require "PHPMailer/src/SMTP.php"; 
     require 'PHPMailer/src/Exception.php'; 

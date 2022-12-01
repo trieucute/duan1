@@ -11,9 +11,9 @@ if(exist_param("btn_update")){
     $hinh = $file_name?$file_name:$hinh;
     try {
      
-        khach_hang_update($ma_user, $mat_khau, $ho_ten, $email,$vai_tro);
+        khach_hang_update_hinh($ma_user,$mat_khau,$email, $hinh,$vai_tro);
    
-        khach_hang_update_hinh($ma_user,$ho_ten,$hinh,$dia_chi,$SDT);
+        khach_hang_update($ma_user,$ho_ten,$dia_chi,$SDT);
         $thongbao= "Cập nhật thông tin thành viên thành công!";
       
         $_SESSION['user'] = khach_hang_select_by_ma($ma_user);
@@ -21,7 +21,7 @@ if(exist_param("btn_update")){
 
     } 
     catch (Exception $exc) {
-        
+        // print_r($exc);
         $thongbao= "Cập nhật thông tin thành viên thất bại!";
     }
 

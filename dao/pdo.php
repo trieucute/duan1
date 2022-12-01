@@ -4,7 +4,7 @@
  * Mở kết nối đến CSDL sử dụng PDO
  */
 function pdo_get_connection() {
-    $dburl = "mysql:host=localhost;dbname=du_an_1;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=demo-duan1;charset=utf8";
     $username = 'root';
     $password = '';
 
@@ -99,17 +99,19 @@ function pdo_query_one($sql) {
  * @return giá trị
  * @throws PDOException lỗi thực thi câu lệnh
  */
-function pdo_query_value($sql) {
+function pdo_query_value($sql){
     $sql_args = array_slice(func_get_args(), 1);
-    try {
+    try{
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return array_values($row)[0];
-    } catch (PDOException $e) {
+    }
+    catch(PDOException $e){
         throw $e;
-    } finally {
+    }
+    finally{
         unset($conn);
     }
 }

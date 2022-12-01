@@ -1,4 +1,10 @@
 <link rel="stylesheet" href="../../content/css/dangnhap-inf.css">
+<style>
+  .filters__button a{
+    text-decoration: none;
+    color:#551a8b;
+  }
+</style>
 <div class="profile container">
       <!-- Theme button -->
       <i class="ri-moon-line change-theme" id="theme-button"></i>
@@ -6,7 +12,7 @@
       <div class="profile__container grid">
         <div class="profile__data">
          
-            <div class="profile__perfil" style="">
+            <div class="profile__perfil" >
               <?php
               
                 if(isset($_SESSION['user']['hinh']) != ""){ ?>
@@ -36,7 +42,9 @@
           }
           ?>
           </h3>
+          <?php if($_SESSION['user']['ho_ten']){?>
           <h2 class="profile__name">Tên: <?=$_SESSION['user']['ho_ten']?></h2>
+          <?php } ?>
           <h2 class="profile__name">Email: <?=$_SESSION['user']['email']?></h2>
           
 
@@ -50,14 +58,14 @@
         <!--=============== FILTERS TABS ===============-->
 
         <ul class="filters__content">
-          <li class="filters__button filter-tab-active"   data-target="#projects"><a href="capnhat.php"  >Cập Nhật Thông Tin </a></li>
+          <li class="filters__button filter-tab-active"  ><a href="capnhat.php"  >Cập Nhật Thông Tin </a></li>
           <span>|</span>
-          <li class="filters__button" data-target="#skills"><a href="doimk.php" >Đổi Mật Khẩu </a></li>
+          <li class="filters__button" ><a href="doimk.php" >Đổi Mật Khẩu </a></li>
           <span>|</span>
-         <li class="filters__button" data-target="#tucodethem"><a href="" > Đơn Hàng Của Bạn </a></li>
+         <li class="filters__button" ><a href="../donhang/don_hang.php" > Đơn Hàng Của Bạn </a></li>
          <?php if (($_SESSION['user']['vai_tro']=='admin') || ($_SESSION['user']['vai_tro']=='nhanvien') ){?>
            <span>|</span>
-          <li class="filters__button" data-target="#tucodethem"><a href="">Quản Trị Website</a></li>
+          <li class="filters__button" ><a href="../../admin/dashboard.php">Quản Trị Website</a></li>
           <?php }?>
          
          

@@ -10,8 +10,33 @@ if(exist_param("dang-nhap")){
     $user = khach_hang_select_by_id($email);
    
     if($user){
-       
-        if($user['mat_khau'] == $mat_khau){
+             // Mã hoá Mat khau
+             $key = 'qkwjdiw239&&jdafwe^%$ggdnawhd4njshjw3123123^&*^#!@#uuO';
+             function encryptthis($mat_khau, $key)
+             {
+                 $encryption_key = base64_decode($key);
+                 $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+                 $encrypted = openssl_encrypt($mat_khau, 'aes-256-cbc', $encryption_key, 0, $iv);
+                 return base64_encode($encrypted . '::' . $iv);
+             }
+             // khach_hang_insert_ho_ten($ho_ten);
+           //   $mat_khau = $_POST['mat_khau'];
+            //  $mat_khau = trim(decryptthis($mat_khau, $key));
+       function decryptthis($mat_khau, $key)
+       {
+           $encryption_key = base64_decode($key);
+           list($encrypted_data, $iv) = array_pad(explode('::', base64_decode($mat_khau), 2), 2, null);
+           return openssl_decrypt($encrypted_data, 'aes-256-cbc', $encryption_key, 0, $iv);
+       }
+
+        if (decryptthis($user['mat_khau'], $key) == $mat_khau) {
+         
+    // if (decryptthis($user['mat_khau'], $key) != $mat_khau) {
+    //     $errors['account_password'] = 'Sai mật khẩu';
+    // } else {
+        
+    //     echo "Đang nhập thành công";
+    // }
             $thongbao= "Đăng nhập thành công!";
             header('Location:../trangchinh');
             if(exist_param("ghi_nho")){
@@ -31,10 +56,16 @@ if(exist_param("dang-nhap")){
         }
         else{
             // print_r($user);
-            $thongbao= "Sai mật khẩu!";
+            if(empty($mat_khau)){
+                $thongbao= "Vui lòng nhập mật khẩu";
+            }else if ($user['mat_khau'] != $mat_khau){
+                $thongbao= "Sai mật khẩu!";
+            }
+            
         }
+    
     }
-    else{
+    else {
         if(empty($email) && empty($mat_khau)){
             $thongbao= "Vui lòng nhập thông tin";
         }else if(empty($email)){
@@ -42,10 +73,13 @@ if(exist_param("dang-nhap")){
         }else if(empty($mat_khau)){
             $thongbao= "Vui lòng nhập mật khẩu";
         }
-        var_dump($email);
-        $thongbao= "Sai email! <p>    <span> <a href='../taikhoan/dangky.php'> Đăng ký </a>nếu bạn chưa có tài khoản</span> <br/> </p> ";
+        // var_dump($email);
+        else if(!$user){
+                $thongbao= "Sai email! <p>    <span> <a href='../taikhoan/dangky.php'> Đăng ký </a>nếu bạn chưa có tài khoản</span> <br/> </p> ";
+        }
+    
 
-        
+    
        
     }
 }

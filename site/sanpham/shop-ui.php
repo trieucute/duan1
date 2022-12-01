@@ -17,20 +17,20 @@
             <div class="row-loc">
                     <span>A -> Z</span>
             </div>
-            <div class="row-loc2">
+            <!-- <div class="row-loc2">
                 <form action="shop.php" method="POST">
              
-                <select name="sex" id="">
+                <select name="filter" id="">
                     <option value="default"  >Mặc định</option>
                     <option value="low_to_high" name="thap">Thấp -> cao</option>
                     <option value="high_to_low" name="cao">Cao -> thấp</option>
-                    <option value="nam"   name="sex"  >Nam</option>
-                    <option value="nu" name="sex">Nữ</option>
-                    <option value="unisex" name="sex">Unisex</option>
+                    <option value="nam"   name="nam"  >Nam</option>
+                    <option value="nu" name="nu">Nữ</option>
+                    <option value="unisex" name="unisex">Unisex</option>
 
 
                     </select>
-                    <button type="submit" > Lọc</button>
+                    <button type="submit" > Lọc</button> -->
                               <!-- <input name="sex" id="input_search" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" value="nam" hidden/>
                               <div class="input-group-prepend">
                                 <a href=""><button class="btn btn_search" type="submit" value="Nam" style="color:black;font-size:17px ">Nam</button></a>
@@ -73,27 +73,116 @@
         }
     }
 }
+
 // show sp từ db
         foreach ($sp as $hh) {  
-             extract($hh);?>
-      
-            <div class="flex-row-sp">
-                <div class="row-sp">      
-                <a href="../ct_san_pham/chi-tiet.php?ma_hh=<?=$hh['ma_hh']?>" class="sp">
-                    <img src="<?=$img_path?><?php echo $hh['hinh1']?>" height= "250" width="100%" >
-                    <img class="hover-img" src="<?=$img_path?><?php echo $hh['hinh2']?>" height= "250" width="100%" >
-
-                    <h5><?=$hh['ten_hh']?> </h5>
-                    
-                    <div class="gia"> <?=currency_format($hh['don_gia'])?></div>
-                    <!-- <div class="btn">
-        <button class="btn-order"><span>GIỎ HÀNG</span> </button>
-                    </div> -->
-             
-                  </a>
-                </div>
+             extract($hh); 
+            
+          
+             ?>
+    
+    <div class="flex-row-sp">
+     <div class="row-sp">      
+     <a href="../ct_san_pham/chi-tiet.php?ma_hh=<?=$hh['ma_hh']?>" class="sp">
+         <img src="<?=$img_path?><?php $a=$hh['ma_hh'] ;$hinhdd= sp_hinh_dai_dien($a); foreach ($hinhdd as $hinh){ echo $hinh; }?>" height= "250" width="100%" >
+         <img class="hover-img" src="<?=$img_path?><?php $hinhmt=sp_hinh_mo_ta($a); foreach($hinhmt as $hinh_mt){ echo $hinh_mt ;}?>" height= "250" width="100%" >
+ 
+         <h5><?=$hh['ten_hh']?> </h5>
+       
+         <div class="gia"> <?=currency_format($hh['don_gia'])?></div>
+         <!-- <div class="btn">
+<button class="btn-order"><span>GIỎ HÀNG</span> </button>
+         </div> -->
+  
+       </a>
+     </div>
             </div>
 <?php }?></div>
+<nav aria-label="Page navigation example" style="margin: 0 auto;     width: fit-content;
+    font-size: 20px; ">
+    <ul class="pagination">
+       <?php 
+        // PHẦN HIỂN THỊ PHÂN TRANG
+        // BƯỚC 7: HIỂN THỊ PHÂN TRANG
+
+        // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+        if ($current_page > 1 && $total_page > 1 && isset($_GET['ma_loai']) ) {
+            echo '<li class="page-item" style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?ma_loai='.$ma_loai.'&page='.($current_page-1).'" style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none;">Trước</a></li> ';
+        }else if ($current_page > 1 && $total_page > 1 && isset($_GET['search']) ){
+            $search = $_GET['search'];
+            echo '<li class="page-item" style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?search='.$search.'&page='.($current_page-1).'" style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none;">Trước</a></li> ';
+
+        }else if($current_page > 1 && $total_page > 1 && isset($_GET['sex']) ){
+            $sex = $_GET['sex'];
+            echo '<li class="page-item" style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?sex='.$sex.'&page='.($current_page-1).'" style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none;">Trước</a></li> ';
+
+
+
+        }else if($current_page > 1 && $total_page > 1){
+            echo '<li class="page-item" style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?'.'page='.($current_page-1).'" style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none;">Trước</a></li> ';
+
+
+        }
+
+        // Lặp khoảng giữa
+        for ($i = 1; $i <= $total_page; $i++){
+            // Nếu là trang hiện tại thì hiển thị thẻ span
+            // ngược lại hiển thị thẻ a
+            // if ($i == $current_page){
+            //     echo '<span>'.$i.'</span> | ';
+            // }
+            // else{
+               if(isset($_GET['ma_loai'])){
+               
+                   echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?ma_loai='.$ma_loai.'&page='.$i.'"  style="    border-radius: 50%;    background-color: #F6F6C9;padding: 10px 20px;border: none;">'.$i.'</a> </li> ';
+                
+               }else if(isset($_GET['search'])){
+
+                $search = $_GET['search'];
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?search='.$search.'&page='.$i.'"  style="    border-radius: 50%;    background-color: #F6F6C9;padding: 10px 20px;border: none;">'.$i.'</a> </li> ';
+
+
+               } else if(isset($_GET['sex'])){
+                $sex = $_GET['sex'];
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?sex='.$sex.'&page='.$i.'"  style="    border-radius: 50%;    background-color: #F6F6C9;padding: 10px 20px;border: none;">'.$i.'</a> </li> ';
+
+
+               }
+               
+               else{
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?'.'page='.$i.'"  style="    border-radius: 50%;    background-color: #F6F6C9;padding: 10px 20px;border: none;">'.$i.'</a> </li> ';
+
+               }
+
+            // }
+        }
+
+        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+        if ($current_page < $total_page && $total_page > 1){
+
+            if(isset($_GET['ma_loai'])){
+
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?ma_loai='.$ma_loai.'&page='.($current_page+1).'"  style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none">Sau</a> </li> ';
+            } else if(isset($_GET['search'])) {
+                $search = $_GET['search'];
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?search='.$search.'&page='.($current_page+1).'"  style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none">Sau</a> </li> ';
+
+
+            } else if(isset($_GET['sex'])){
+                $sex = $_GET['sex'];
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?sex='.$sex.'&page='.($current_page+1).'"  style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none">Sau</a> </li> ';
+
+
+            } else{
+                echo ' <li class="page-item"  style="padding: 0 10px"><a class="page-link" href="../sanpham/shop.php?'.'page='.($current_page+1).'"  style="    border-radius: 50%; background-color: #F6F6C9;padding: 10px 20px;border: none">Sau</a> </li> ';
+
+
+            }
+        }
+
+
+    ?></ul>
+    </nav>
 <div class="box-content-fot">
     <div class="text-content-fot">Lấy những thứ tốt  <i class="fa-solid fa-circle-check"></i></div>
     <div class="img-box">

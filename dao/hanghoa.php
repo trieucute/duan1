@@ -1,49 +1,83 @@
 <?php
 // load sp dac biet
 function load_sp_db(){
-   $sql = "SELECT * FROM hang_hoa  hh "."join hinh h on h.id_hinh=hh.id_hinh"." where dac_biet=1 limit 0,8";
+   $sql = "SELECT * FROM hang_hoa  where dac_biet=1 limit 0,8";
    $kq= pdo_query($sql);
       return   $kq;
 }
 
+
+
+
 // lọc theo sp nam
 function load_sp_men(){
-   $sql =  "SELECT * FROM hang_hoa  hh "."join hinh h on h.id_hinh=hh.id_hinh"." WHERE gioi_tinh = 'nam'";
+   $sql =  "SELECT * FROM hang_hoa  WHERE gioi_tinh = 'nam'";
    $kq= pdo_query($sql);
       return   $kq;
 }
 // lọc theo sp nữ
 function load_sp_women(){
-   $sql =  "SELECT * FROM hang_hoa  hh "."join hinh h on h.id_hinh=hh.id_hinh"." WHERE gioi_tinh = 'nu'";
+   $sql =  "SELECT * FROM hang_hoa WHERE gioi_tinh = 'nu'";
    $kq= pdo_query($sql);
       return   $kq;
 }
 // lọc theo sp unisex
 function load_sp_unisex(){
-   $sql =  "SELECT * FROM hang_hoa hh "."join hinh h on h.id_hinh=hh.id_hinh"." WHERE gioi_tinh = 'unisex'";
+   $sql =  "SELECT * FROM hang_hoa  WHERE gioi_tinh = 'unisex'";
    $kq= pdo_query($sql);
       return   $kq;
 }
 // lọc theo từ thấp - cao
 function load_sp_HighToLow(){
-   $sql =   "SELECT * FROM hang_hoa  hh "."join hinh h on h.id_hinh=hh.id_hinh"." ORDER BY don_gia ASC";
+   $sql =   "SELECT * FROM hang_hoa  ORDER BY don_gia ASC";
    $kq= pdo_query($sql);
       return   $kq;
 }
-// lọc theo từ  cao - thấp
-function load_sp_LowToHigh(){
-   $sql = "SELECT * FROM hang_hoa  hh "."join hinh h on h.id_hinh=hh.id_hinh"." ORDER BY don_gia DESC";
+// lọc theo sp nam
+function load_sp_men_ma_loai($ma_loai){
+   $sql =  "SELECT * FROM hang_hoa  WHERE gioi_tinh = 'nam' and ma_loai=".$ma_loai;
    $kq= pdo_query($sql);
       return   $kq;
 }
+// lọc theo sp nữ
+function load_sp_women_ma_loai($ma_loai){
+   $sql =  "SELECT * FROM hang_hoa  WHERE gioi_tinh = 'nu' and ma_loai=".$ma_loai;
+   $kq= pdo_query($sql);
+      return   $kq;
+}
+function load_sp_unisex_ma_loai($ma_loai){
+   $sql =  "SELECT * FROM hang_hoa hh WHERE gioi_tinh = 'unisex' and ma_loai=".$ma_loai;
+   $kq= pdo_query($sql);
+      return   $kq;
+}
+
 // hiện tất cả sản phẩm
    function sp_all(){
-    $sql= "select * from hang_hoa hh "."join hinh h on h.id_hinh=hh.id_hinh"."  ";
+    $sql= "select * from hang_hoa  ";
     return   pdo_query($sql);
    }
+   // hiện hình
+   function sp_hinh_dai_dien($a){
+      $sql= "select hinh from hinh where vai_tro_hinh like '%dai dien%'  and ma_hh = $a";
+      return   pdo_query_one($sql);
+     }
+        // hiện hình
+   function sp_hinh_mo_ta($a){
+      $sql= "select hinh from hinh where vai_tro_hinh like '%mo ta%'  and ma_hh = $a";
+      return   pdo_query_one($sql);
+     }
+
+ 
    // hiện sản phẩm theo loại
    function sp_one($ma_loai){
-      $sql = "SELECT  * FROM hang_hoa  hh "."join hinh h on h.id_hinh=hh.id_hinh"." WHERE ma_loai=".$ma_loai;
+      $sql = "SELECT  * FROM hang_hoa  WHERE ma_loai=".$ma_loai;
+     
+    return    pdo_query($sql);
+      
+   }
+   // hiện san phảm cùng loại trong trang chi tiết
+   function sp_one_cung_loai($ma_loai,$ma_hh){
+      $sql = "SELECT  * FROM hang_hoa  WHERE ma_loai=$ma_loai and not ma_hh=$ma_hh order by ma_hh limit 0,4" ;
      
     return    pdo_query($sql);
       
@@ -51,7 +85,12 @@ function load_sp_LowToHigh(){
 
    // chi tiết sản phảm
    function sp_load($ma_hh){
-      $sql = "SELECT * FROM hang_hoa hh "." join hinh h on h.id_hinh=hh.id_hinh "." WHERE hh.ma_hh=".$ma_hh;
+      $sql = "SELECT * FROM hang_hoa WHERE ma_hh=".$ma_hh;
+       return  pdo_query_one($sql);
+     
+   } 
+   function sp_load_hinh($ma_hh){
+      $sql = "SELECT * FROM hang_hoa hh join hinh h on h.ma_hh=hh.ma_hh  WHERE h.vai_tro_hinh= 'đại diện' and hh.ma_hh=".$ma_hh;
        return  pdo_query_one($sql);
      
    } 
@@ -86,15 +125,7 @@ function load_sp_LowToHigh(){
    pdo_execute($sql);
   }
 
-// phan trang sản phẩm
-function phan_trangsp(){
-   $pagesize=5;
-   $startrow=0;
-   $sql = "SELECT * FROM hanghoa limit  $pagesize,$startrow";
-   pdo_query($sql);
-   return    pdo_query($sql);
 
-}
 
 
 //  tăng lượt xem khi nhấn vào 1 sản phẩm
@@ -106,15 +137,81 @@ function phan_trangsp(){
    // tìm kiếm từ khoá
    function kq_timkiem($search){
      
-      $sql="SELECT *FROM hang_hoa hh "."join loai lo on lo.ma_loai=hh.ma_loai"."  join hinh h on h.id_hinh=hh.id_hinh"."  WHERE (ten_hh like '%$search%')";
+      $sql="SELECT *FROM hang_hoa WHERE (ten_hh like '%$search%')";
       
       return pdo_query($sql);
    }
-   function kq_timkiem_sex($sex){
+   function kq_timkiem_sex($sex,$start,$limit){
      
-      $sql="SELECT *FROM hang_hoa hh "."join loai lo on lo.ma_loai=hh.ma_loai"." join hinh h on h.id_hinh=hh.id_hinh"." WHERE (gioi_tinh like '%$sex%')";
+      $sql="SELECT *FROM hang_hoa  WHERE (gioi_tinh like '%$sex%') LIMIT $start, $limit ";
       
       return pdo_query($sql);
    }
 
+// tìm kiếm hàng hóa phân trang theo từ khóa
+function kq_phanTrang_timKiem($search,$start,$limit){
+   $sql = "SELECT *FROM hang_hoa WHERE (ten_hh like '%$search%') LIMIT $start, $limit";
+   return pdo_query($sql);
+}
+
+
+
+// đếm hàng hóa theo từ khóa
+function dem_phanTrang_timKiem($search){
+   $sql = "select count(ma_hh) from hang_hoa where ten_hh like '%$search%'";
+   return pdo_query_value($sql);
+}
+
+// đếm hàng hóa theo mã loại
+
+function hh_count_by_ma_loai($ma_loai){
+   $sql = "select count(ma_hh)  from hang_hoa where ma_loai= ?";
+   return pdo_query_value($sql,$ma_loai);
+}
+
+// đếm hàng hóa theo giới tính
+function hh_count_by_sex($sex){
+   $sql = "select count(ma_hh) from hang_hoa where gioi_tinh='".$sex."'";
+   // print_r($sql);
+   return pdo_query_value($sql);
+}
+
+// đếm tất cả hàng hóa
+function hh_count_all(){
+   $sql = "select count(ma_hh)  from hang_hoa ";
+   return pdo_query_value($sql);
+
+}
+
+// tim kiếm hàng hóa phân trang theo mã loại
+function hh_phan_trang_by_ma_loai($ma_loai,$start,$limit){
+   $sql = "SELECT  * FROM hang_hoa WHERE ma_loai='".$ma_loai."' LIMIT $start, $limit";
+   return pdo_query($sql);
+}
+
+// tìm kiếm tất cả hàng hóa
+function hh_phan_trang_all($start,$limit){
+   $sql = "SELECT  * FROM hang_hoa LIMIT $start, $limit";
+   return pdo_query($sql);
+}
+
+
+// giảm số lương size
+
+function hh_giam_so_luong ($ma_hh,$size,$so_luong){
+   $sql = "update hang_hoa set size_$size= size_$size - $so_luong where ma_hh = $ma_hh ";
+   pdo_execute($sql);
+}
+
+
+function thong_ke_binh_luan(){
+   $sql = "SELECT hh.ma_hh, hh.ten_hh,"
+           . " COUNT(*) so_luong,"
+           . " MIN(bl.ngay_bl) cu_nhat,"
+           . " MAX(bl.ngay_bl) moi_nhat"
+           . " FROM binh_luan bl "
+           . " JOIN hanghoa hh ON hh.ma_hh=bl.ma_hh "
+           . " GROUP BY hh.ma_hh, hh.ten_hh"
+           . " HAVING so_luong > 0";
+   return pdo_query($sql);}
    ?>

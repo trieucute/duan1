@@ -28,7 +28,7 @@
 </style>
 <div class="container-login right-panel-active" id="container-login">
 	<div class="form-container sign-up-container">
-		<form action="dangky.php" method="POST">
+		<form action="dangky.php" method="POST" name="myform">
 			<h1>TẠO TÀI KHOẢN</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -36,14 +36,18 @@
 		
 			</div>
 			<span>Hoặc đăng ký tài khoản của bạn</span>
-            <input name="ho_ten"    placeholder="Họ và tên" value="<?=$ho_ten?>">
+            <!-- <input name="ho_ten"    placeholder="Họ và tên" value=""> -->
             <input name="email"  type="email"  placeholder="Email"  value="<?=$email?>">
-            <input name="mat_khau" type="password" placeholder="Mật khẩu"  value="<?=$mat_khau?>" minlength="8">
+            <input name="mat_khau" type="password" placeholder="Mật khẩu"   minlength="6">
+            <input name="mat_khau2" type="password" placeholder="Xác nhận mật khẩu"  minlength="6">
+
 			<input type="text" name="ma_user" id="" hidden>
 			<input name="vai_tro" value="khachhang" type="hidden">
             <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;" type="submit">ĐĂNG KÝ</button>
 		</form>
+		
+		
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="dangnhap.php" method="POST">
@@ -59,7 +63,7 @@
             <input name="mat_khau" type="password"  value=""placeholder="Mật khẩu"   value="<?=$mat_khau?>" minlength="8">
             <!-- <input name="ghi_nho" type="checkbox" width="10%;" ><span style="float: ;left">Ghi nhớ tài khoản?</span>  -->
                  
-			<a href="#">Quên mật khẩu?</a>
+			<a href="../taikhoan/quenmk.php">Quên mật khẩu?</a>
 			<button name="dang-nhap" style="margin-top: 10px;" type="submit">Đăng nhập</button>
 		</form>
 	</div>

@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="content/fontawesome-free-6.1.1-web/css/all.css">
     <link rel="stylesheet" href="content/MergeBlack.woff">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
   <style>
     header{
         height: 100px;

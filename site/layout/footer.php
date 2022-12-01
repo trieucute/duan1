@@ -7,10 +7,14 @@
     <title>Document</title>
   <link rel="stylesheet" href="../../content/fontawesome-free-6.1.1-web/css/all.css">
     
-    <link rel="stylesheet" href="../../content/css/footerss.css">
+    <link rel="stylesheet" href="../../content/css/footer.css">
     <link rel="stylesheet" href="../../content/css/slide.css">
 
-
+ <style>
+  *{
+    padding: 0 0;
+  }
+ </style>
 </head>
 <body>
     <div class="footer">
@@ -18,9 +22,9 @@
          <div class="row">
            <div class="footer-col">
              <h4>LIÊN HỆ</h4>
-             <ul>
+             <ul style="padding: 0 0;">
                <li><a href="#">Hotline:</a></li>
-               <li><a href="#">(+84)1234567</a></li>
+               <li><a href="#">(+84)369540497</a></li>
                <li><a href="#">Email:</a></li>
                <li><a href="#">f6fashionz@gmail.com</a></li>
                <li><a href="#">Thứ hai - Chủ nhật: 9-30 ~ 21-30</a></li><br><br>
@@ -29,7 +33,7 @@
            </div>
            <div class="footer-col">
              <h4>CỬA HÀNG</h4>
-             <ul>
+             <ul style="padding: 0 0;">
                <li><a href="#">Công Viên Phần Mềm Quang Trung , Quận 12</a></li>
                <li><a href="#">07 Lam Son , Ben Nghe, Quận 1, Tp.HCM</a></li>
                <li><a href="#">1340 Le Duc Tho, phường 13, Quận Go Vap, Tp.HCM </a></li>
@@ -37,10 +41,10 @@
            </div>
            <div class="footer-col">
              <h4>HỖ TRỢ</h4>
-             <ul>
-               <li><a href="#">Chính sách bảo hành</a></li>
-               <li><a href="#">Chính sách giao hàng</a></li>
-               <li><a href="#">Chính sách mua hàng</a></li>
+             <ul style="padding: 0 0;">
+               <li><a href="../trangchinh?bao_hanh">Chính sách bảo hành</a></li>
+               <li><a href="../trangchinh?giao_hang">Chính sách giao hàng</a></li>
+               <li><a href="../trangchinh?mua_hang">Chính sách mua hàng</a></li>
              </ul>
            </div>
            <div class="footer-col">

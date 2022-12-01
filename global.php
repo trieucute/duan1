@@ -2,7 +2,7 @@
   <?php 
 session_start();
 // Định nghĩa các url cần thiết được sử dụng trong website
-$ROOT_URL = "/duan1"; //đường dẫn gốc của website
+$ROOT_URL = "/asmduan11"; //đường dẫn gốc của website
 $CONTENT_URL = "$ROOT_URL/content"; //đường dẫn chứa tài nguyên tĩnh (img, css, js)
 $ADMIN_URL = "$ROOT_URL/admin"; //đườnf dẫn vào phần quản trị
 $SITE_URL = "$ROOT_URL/site"; //đường dẫn vào ohần site

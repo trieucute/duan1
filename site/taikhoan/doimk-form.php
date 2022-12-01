@@ -15,11 +15,11 @@
             </div>
             <div class="form-group" style="margin-top: 10px ;">
                 <label>Mật khẩu mới</label>
-                <input name="mat_khau2" type="password" class="form-controls" minlength="8">
+                <input name="mat_khau2" type="password" class="form-controls" minlength="6">
             </div>
             <div class="form-group"style="margin-top: 10px ;">
                 <label>Xác nhận mật khẩu mới</label>
-                <input name="mat_khau3" type="password" class="form-controls" minlength="8">
+                <input name="mat_khau3" type="password" class="form-controls" minlength="6">
             </div>
                     
                     <div class="btns-login" style="margin-top: 30px ;">

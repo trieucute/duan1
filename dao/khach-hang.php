@@ -1,16 +1,14 @@
 <?php
 require_once 'pdo.php';
 // them kh trong phần đăng ký
-function khachhang_insert( $mat_khau, $email,$vai_tro,$ho_ten){
-    $sql = "insert into user( mat_khau,email,vai_tro,ho_ten) values ('$mat_khau', '$email','$vai_tro','$ho_ten')  ";
-
-   
- 
+function khachhang_insert( $mat_khau, $email,$vai_tro){
+    $sql = "insert into user( mat_khau,email,vai_tro) values ('$mat_khau', '$email','$vai_tro')  ";
     pdo_execute($sql);
 }
-function khachhang_mauser(){
-    $sql ="insert into khachhang(ma_user,ho_ten) 
-    SELECT ma_user,ho_ten from user ORDER by ma_user DESC limit 1 ";
+
+function khachhang_mauser($email){
+    $sql ="insert into khachhang(ma_user) 
+    SELECT ma_user from user where email='$email' ORDER by ma_user DESC limit 1 ";
     pdo_execute($sql);
 
 }
@@ -33,27 +31,26 @@ function khachhang_mauser(){
  }
 
 // Thêm khách hàng mới
-function khach_hang_insert($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat,$vai_tro){
-    $sql = "INSERT INTO user(ma_kh, mat_khau, ho_ten, email, hinh,kich_hoat,vai_tro) VALUES ('$ma_kh', '$mat_khau', '$ho_ten', '$email', '$hinh','$kich_hoat','$vai_tro')";
-   pdo_execute($sql);
-}
+// function khach_hang_insert($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat,$vai_tro){
+//     $sql = "INSERT INTO user(ma_kh, mat_khau, ho_ten, email, hinh,kich_hoat,vai_tro) VALUES ('$ma_kh', '$mat_khau', '$ho_ten', '$email', '$hinh','$kich_hoat','$vai_tro')";
+//    pdo_execute($sql);
+// }
 //Cập nhật thông tin 1 khách hàng
 // UPDATE user SET mat_khau=".$mat_kh4324au.",ho_ten=".$ho_t3442en.",email=".$emai432432l",vai_tro="$va432432i_tro" where ma_user=73;
 // UPDATE khachhang set ho_ten=".$ho_t3442en.",hinh='hiđsad34234nh' where ma_user=73
-function khach_hang_update($ma_user,$mat_khau, $ho_ten, $email, $vai_tro){
-
-   $sql = "UPDATE user SET mat_khau='".$mat_khau."',ho_ten='".$ho_ten."',email='".$email."',vai_tro='".$vai_tro."' WHERE ma_user='".$ma_user."' ";
+function khach_hang_update_hinh($ma_user,$mat_khau,$email, $hinh,$vai_tro){
+    if($hinh!=""){
+   $sql = "UPDATE user SET mat_khau='".$mat_khau."',email='".$email."',hinh='".$hinh."' ,vai_tro='".$vai_tro."' WHERE ma_user='".$ma_user."' ";
+}else{
+      
+    $sql = "UPDATE user SET mat_khau='".$mat_khau."',email='".$email."'' ,vai_tro='".$vai_tro."' WHERE ma_user='".$ma_user."' ";
+ }
     pdo_execute($sql);
 }
-function khach_hang_update_hinh($ma_user,$ho_ten,$hinh,$dia_chi,$SDT){
-    if($hinh!=""){
-     
-      $sql = "UPDATE khachhang SET ho_ten='".$ho_ten."',hinh='".$hinh."' ,dia_chi='".$dia_chi."' ,SDT='".$SDT."' WHERE ma_user='".$ma_user."' ";
-   
-    }else{
-      
+function khach_hang_update($ma_user,$ho_ten,$dia_chi,$SDT){
+  
        $sql = "UPDATE khachhang SET ho_ten='".$ho_ten."' ,dia_chi='".$dia_chi."' ,SDT='".$SDT."' WHERE ma_user='".$ma_user."'";
-    }
+    
        pdo_execute($sql);
    }
 

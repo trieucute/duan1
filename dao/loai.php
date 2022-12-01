@@ -41,3 +41,4 @@ function loai_exist($ma_loai){
     $sql = "SELECT count(*) FROM loai WHERE ma_loai=?";
     return pdo_query_value($sql, $ma_loai) > 0;
 }
+
