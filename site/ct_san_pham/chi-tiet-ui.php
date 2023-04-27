@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,6 +15,7 @@
       src="https://kit.fontawesome.com/f892788311.js"
       crossorigin="anonymous"
     ></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="../../content/css/ct-san-pham.css">
     <link rel="stylesheet" href="../../content/css/shops.css">
 <style>
@@ -21,20 +23,44 @@
     font-family: Mergeblack;
     src: url(../MergeBlack.woff);
 }
+body{
+   position: relative;
+}
+  .img-order-fly{
+    position: absolute;
+    z-index: 9999999999;
+    top: 5px;
+    left:20px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    border :2px solid black;
+  }
+  .img_product_fly {
+	position: absolute;
+	width: 30px !important;
+	height: auto;
+  border-radius: 100%;
 
+	z-index: 999;
+}
+.none{
+  display: none;
+}
 </style>
   </head>
   
   <body>
     <div class=" container product-detail my-1 pt-4 shadow-none">
-      <div class="row mb-4">
+      <div class="row mb-4  order-shop">
         <div class="col-lg-5">
         <img
           src="<?=$img_path?><?php $hinh= sp_hinh_dai_dien($ma_hh);
 extract($hinh); echo $hinh?>" 
             alt=""
             srcset=""
-            class=" main-img img-fluid w-100 rounded-2"
+            class=" main-img img-fluid w-100 rounded-2 img_product"
             height="600px"
             
           />
@@ -68,10 +94,18 @@ extract($hinh); echo $hinh?>"
             <p class="fs-4 m-0 fw-bold" style="font-family: Mergeblack;">Size:</p>
             <div class="group-btn-size d-flex gap-3" style="font-family: Mergeblack;">
              
-            
+            <?php
+            if($size_s>0){?>
+
+       
             
               <input checked data-size="s" name="size" class="btn-size" id="sizes" type="radio" hidden >
               <label  data-size="s" style=" background-color: #d9db88 ; width: 40px; height:40px ;font-family: Mergeblack;"  class=" btn btn-label btn-secondary m-0 rounded-5 fs-6" for="sizes">S</label>
+              <?php   }else{?>
+                <input checked data-size="s" name="size" class="btn-size" id="sizes" type="radio" hidden disabled>
+              <label   style=" background-color: #d9db88 ; width: 40px; height:40px ;font-family: Mergeblack;"  class=" btn btn-label btn-secondary m-0 rounded-5 fs-6 hien none" for="sizes" >S</label>
+                <?php  } ?>
+            
             
               <input data-size="m" name="size" class="btn-size" id="sizem" type="radio" hidden >
               <label data-size="m" style="width: 40px; height:40px ;font-family: Mergeblack;"  class=" btn btn-label btn-secondary m-0 rounded-5 fs-6" class="fs-6" for="sizem">M</label>
@@ -85,8 +119,13 @@ extract($hinh); echo $hinh?>"
            
               <input data-size="xxl" name="size" class="btn-size" id="sizexxl" type="radio" hidden >
               <label data-size="xxl" style="width: 55px; height:40px ;font-family: Mergeblack;"  class=" btn btn-label btn-secondary m-0 rounded-5 fs-6" for="sizexxl">XXL</label>
-            
-            
+            <!-- <script>
+    const chart = document.querySelector('.none')
+    document.querySelector('.hien').addEventListener("click", function(){
+      chart.classList.add('.none');
+
+    })
+            </script> -->
             <!-- <button
                 style="width: 40px;font-family: Mergeblack;"
                 class="btn btn-size btn-secondary m-0 rounded-5 fs-6"
@@ -132,8 +171,9 @@ extract($hinh); echo $hinh?>"
               ></span>
             </div>
           </div>
+          <div class="fly_img"></div>
 
-          <button class="btn-add-cart mb-4" onclick="addToCart(<?php echo $ma_hh ?>)" style="font-family: Mergeblack;">Thêm vào giỏ hàng</button>
+          <button class="btn-add-cart mb-4 btn-order" href="javascript:void(0);" onclick="addToCart(<?php echo $ma_hh ?>)" style="font-family: Mergeblack;">Thêm vào giỏ hàng</button>
 
           <div class="description mt-4">
             <h3 class=" fs-4 fw-bold "style="font-family: Mergeblack;">Mô tả:</h3>
@@ -255,6 +295,28 @@ extract($hinh); echo $hinh?>"
 
         })
       })
+      $(document).on('click', '.btn-order', function(e) {
+      e.preventDefault();
+      var $parent = $(this).parents('.order-shop');
+      var $img = $parent.find('.img_product').attr('src');
+      var parTop = $('.fly_img').offset().top;
+      var parLeft = $('.fly_img').offset().left;
+      $('<img />' , {
+        src: $img,
+        class: 'img_product_fly',
+        alt: 'fly_img'
+      }).appendTo('body').css({
+        top: parTop,
+        left: parLeft
+        })
+        .animate({
+          top: $('.fa-cart-plus').offset().top,
+          left: $('.fa-cart-plus').offset().left,
+        }, 1300, function() {
+          $(this).remove();
+        });
+      });
+
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

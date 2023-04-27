@@ -9,12 +9,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../content/Font/MergeBlack.woff">
     <!-- <link rel="stylesheet" href="../../content/css/indexss.css"> -->
-    <link rel="stylesheet" href="../menuadminss.css">
+    <link rel="stylesheet" href="../menune.css">
     <link rel="stylesheet" href="../../content/font/Font/stylesheet.css" />
 
     <style>
         main{
             margin-left: 15%;
+        }
+        .container-row-content{
+            margin: 0 0 !important;
+            /* padding-top: 10px; */
         }
     </style>
 </head>

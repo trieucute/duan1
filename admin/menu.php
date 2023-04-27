@@ -9,85 +9,15 @@
     <!-- <link rel="stylesheet" href="../menuadmins.css"> -->
     <link rel="stylesheet" href="../../content/Font/MergeBlack.woff">
     <!-- <link rel="stylesheet" href="../../content/css/indexss.css"> -->
-    <link rel="stylesheet" href="../menuadminss.css">
+    <link rel="stylesheet" href="../menune.css">
     <link rel="stylesheet" href="../../content/Font/stylesheet.css" />
-    <style>
-        ul a{
-        text-decoration: none;
-
-        }
-      ul li{
-        transition: 0.3s;
-    transition-delay: 0.5s;
-      }
-        .actives{
-            color: white;
-
-            /* background-color: red; */
-        }
-        .item::before{
-          /* background-color: red; */
-          background-image: linear-gradient(to bottom, #C45AB3, #DD789A);
-
-
-        }
-       .item i{
-        color: white;
-
     
-        }
-        .item a{
-        color: whitesmoke;
-
-    
-        }
-        .item.actives i{
-          color: white;
-          transition: all 0.5s linear;
-
-    transition-delay: 0.5s;
-    /* transform: scale(1.2); */
-    animation:  identifier 1s linear ;
-
-        }
-        @keyframes identifier {
-          10%{
-            color: black;
-            transform: scale(1.2);
-            transition: all 0.5s linear;
-          }
-          50%{
-            color: antiquewhite;
-            transform: scale(1.3);
-            transition: all 0.5s linear;
-
-          }
-          100%{
-            color: white;
-            transition: all 0.5s linear;
-
-            transform: scale(1);
-          }
-        }
-        /* .item:active .actives{
-            color: white;
-            background-color: red;
-        } */
-        /* .item.actives:active{
-            color: white;
-            background-color: red;
-        } */
-        .item a{
-             color: whitesmoke;
-             display: block;
-        }
-        .item.actives a{
-            color: white;
-        }
-    </style>
 </head>
 <body>
-    <div class="menu">
+
+    <div class="menu" style="margin: 0px 0 30px 10px !important;">
+  
+   <div class="title-control" style="text-align:center ; color:azure;font-size:26px; margin-bottom: 20px;  font-family: Mergeblack;">Trang quản trị web</div>
         <ul id="menu-ad" >
        <li class="item "> <a href="../trangchinh"  >
                     <i class="fa-solid fa-house-user "   ></i>Bảng Điều Khiển
@@ -100,24 +30,36 @@
                 </li></a>
     
               <li class="item  item_user ">   <a href="../user/">
-                    <i class="fa-solid fa-user"></i>Người Dùng</a>
+                    <i class="fa-solid fa-user"></i>Người Dùng</a>   <i class="fa-solid fa-chevron-down" style="position: absolute; margin:0 5px"></i>
+                <ul class="item_con">
+                    <li ><a href="../user/index.php?nhanvien_list">Nhân viên</a> </li>
+                    <li><a href="../user/index.php?khachhang_list">Khách hàng</a></li>
+
+                </ul>
     
                 </li>
               <li class="item  item_cmt">  <a href="../binhluan/"><i class="fa-solid fa-comment"></i>Bình Luận</a></li>
-                <a href="donhang.html"><li class="item">
-                    <i class="fa-solid fa-cart-shopping"></i>Đơn Hàng
-    
-                </li></a>
-                <a href="baiviet.html"><li class="item">
+              
+              <li class="item">
+                <a href="../donhang/"><i class="fa-solid fa-shirt"></i> Đơn Hàng</a>  <i class="fa-solid fa-chevron-down" style="position: absolute;    margin: 0 5px;"></i>
+                <ul class="item_con">
+                    <li ><a href="../donhang/index.php?don_moi">Đơn mới</a> </li>
+                    <li><a href="../donhang/index.php?dang_giao">Đang giao</a></li>
+                    <li><a href="../donhang/index.php?da_giao">Đã giao</a></li>
+             
+
+                </ul>
+            </li>
+                <li class="item"><a href="../baiviet/">
                     <i class="fa-solid fa-pen-to-square"></i>Bài Viết
     
-                </li></a>
+                </a></li>
             <a href="../../index.php"    style="display: block;"  ><img src="../../content/imgs/logo_da1_png.png" alt="" width="80%"></a>
 
         <!-- <div id="action" class="action"></div> -->
         </ul>
     </div>
-    <!-- <script src="../../content/js/menu.js"></script> -->
+    <script src="../menu.js"></script>
 </body>
 </html>
 <script>

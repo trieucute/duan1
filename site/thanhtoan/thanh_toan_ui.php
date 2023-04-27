@@ -11,19 +11,20 @@
       crossorigin="anonymous"
     />
     <style>
-      label,
+      /* label,
       input::placeholder {
   
         
-      }
+      } */
       hr {
         border-top: 2px solid;
       }
+
     </style>
   </head>
   <body>
     <div class="container">
-      <h2 class="text-center my-5">THANH TOÁN</h2>
+      <h2 class="text-center my-5" style="margin: 1rem 0 !important">THANH TOÁN</h2>
       <div class="row">
         <h3 class="mb-4 mt-4 text-dark fs-3 fw-bold">Thông tin đặt hàng</h3>
         <div class="col-6">
@@ -44,6 +45,7 @@
 
                 
               />
+              <div class="error" style="color: #C60000;      font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['ho_ten']) ? $error['ho_ten'] : ''; ?></div>
             </div>
             <div class="col-12 p-2">
               <input
@@ -54,8 +56,9 @@
                 id="inputEmail"
                 value="<?php if(isset($kh['email'])) echo $kh['email'] ?>"  
                 name="email"
-                required
+
               />
+              <div class="error" style="color: #C60000;       font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['email']) ? $error['email'] : ''; ?></div>
             </div>
 
             <div class="col-md-12 p-2">
@@ -69,18 +72,20 @@
                 name="dia_chi"  
 
               />
+              <div class="error" style="color: #C60000;       font-family: Mergeblack;font-weight: bold;" > <?php echo isset($error['dia_chi']) ? $error['dia_chi'] : ''; ?></div>
             </div>
             <div class="col-md-12 p-2">
               <input
                 style="background-color: #e4e4e4"
                 placeholder="Điện thoại"
-                type="text"
+                type="number"
                 class="form-control p-4 text-dark rounded-2"
                 id="inputPhone"
                 value="<?php if(isset($kh)) echo $kh_info['SDT'] ?>"
                 name="SDT"  
-
+              minlength="11"
               />
+              <div class="error" style="color: #C60000;       font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['SDT']) ? $error['SDT'] : ''; ?></div>
             </div>
 
             <div class="">
@@ -95,7 +100,7 @@
                   name="pttt"
                   type="radio"
                   id="tt1"
-                  value="khi nhận hàng"
+                  value="Khi nhận hàng"
                 />
                 <label for="tt1" class="" style="      color: rgba(119, 113, 113, 1);
         font-size: 22px;
@@ -105,7 +110,7 @@
                   name="pttt"
                   type="radio"
                   id="tt2"
-                  value="online"
+                  value="Online"
                 />
                 <label for="tt2" class="" style="      color: rgba(119, 113, 113, 1);
         font-size: 22px;

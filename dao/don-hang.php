@@ -27,7 +27,16 @@ function don_hang_by_ma_kh($ma_kh){
   $sql = "select * from don_hang where ma_kh = $ma_kh";
   return pdo_query($sql);
 }
-
+function don_hang_huy($ma_don_hang){
+  $sql = "select * from don_hang where trang_thai= 'Chờ xác nhận' and ma_don_hang = '$ma_don_hang' ";
+ 
+  return pdo_query($sql);
+}
+function don_hang_by_huy($ma_don_hang){
+  $sql = "UPDATE don_hang SET trang_thai= 'Đã huỷ'  where ma_don_hang = '$ma_don_hang' ";
+ 
+  pdo_execute($sql);
+}
 // lấy chi tiết đơn don
 
 function select_ct_don_hang($ma_don_hang){

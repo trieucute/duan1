@@ -12,14 +12,17 @@
                 <div class="form-group" style="margin-top: 10px ;">
                 <label>Mật khẩu cũ</label>
                 <input name="mat_khau" type="password" class="form-controls">
+                <div class="error" style="color: #C60000;   font-family: 'Signika Negative'; font-weight: bold; margin: 10px 0" > <?php echo isset($error['mat_khau']) ? $error['mat_khau'] : ''; ?></div>
             </div>
             <div class="form-group" style="margin-top: 10px ;">
                 <label>Mật khẩu mới</label>
                 <input name="mat_khau2" type="password" class="form-controls" minlength="6">
+                <div class="error" style="color: #C60000;   font-family: 'Signika Negative'; font-weight: bold;margin: 10px 0" > <?php echo isset($error['mat_khau2']) ? $error['mat_khau2'] : ''; ?></div>
             </div>
             <div class="form-group"style="margin-top: 10px ;">
                 <label>Xác nhận mật khẩu mới</label>
                 <input name="mat_khau3" type="password" class="form-controls" minlength="6">
+                <div class="error" style="color: #C60000;   font-family: 'Signika Negative'; font-weight: bold;margin: 10px 0" > <?php echo isset($error['mat_khau3']) ? $error['mat_khau3'] : ''; ?></div>
             </div>
                     
                     <div class="btns-login" style="margin-top: 30px ;">

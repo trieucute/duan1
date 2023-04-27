@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// session_start();
 require_once "../../global.php";
 extract($_REQUEST);
 if(exist_param('del_item')){

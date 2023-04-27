@@ -11,13 +11,13 @@
 
       <div class="profile__container grid">
         <div class="profile__data">
-         
-            <div class="profile__perfil" >
+          <h2>THÔNG TIN TÀI KHOẢN</h2>
+            <div class="profile__perfil" style="   height:fit-content !important; ">
               <?php
               
                 if(isset($_SESSION['user']['hinh']) != ""){ ?>
                  
-                 <img src="<?=$img_path?><?=$_SESSION['user']['hinh'] ?>"  style='object-fit: cover; '>
+                 <img src="<?=$img_path?><?=$_SESSION['user']['hinh'] ?>"  style='object-fit: cover; height:120px'>
                   
                 <?php }
                 else{?>
@@ -32,12 +32,12 @@
             </div>
           
           <h3 class="profile__profession"><?php
-          if($_SESSION['user']['vai_tro']=='khachhang'){
+          if($_SESSION['user']['vai_tro']=='Khách hàng'){
             echo 'Khách hàng';
           }else if ($_SESSION['user']['vai_tro']=='admin'){
             echo 'Admin';
 
-          }else if ($_SESSION['user']['vai_tro']=='nhanvien'){
+          }else if ($_SESSION['user']['vai_tro']=='Nhân viên'){
             echo 'Nhân viên';
           }
           ?>
@@ -63,9 +63,9 @@
           <li class="filters__button" ><a href="doimk.php" >Đổi Mật Khẩu </a></li>
           <span>|</span>
          <li class="filters__button" ><a href="../donhang/don_hang.php" > Đơn Hàng Của Bạn </a></li>
-         <?php if (($_SESSION['user']['vai_tro']=='admin') || ($_SESSION['user']['vai_tro']=='nhanvien') ){?>
+         <?php if (($_SESSION['user']['vai_tro']=='admin') || ($_SESSION['user']['vai_tro']=='Nhân viên') ){?>
            <span>|</span>
-          <li class="filters__button" ><a href="../../admin/dashboard.php">Quản Trị Website</a></li>
+          <li class="filters__button" ><a href="../../admin/trangchinh/">Quản Trị Website</a></li>
           <?php }?>
          
          

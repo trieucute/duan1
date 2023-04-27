@@ -42,7 +42,7 @@
             <input name="mat_khau2" type="password" placeholder="Xác nhận mật khẩu"  minlength="6">
 
 			<input type="text" name="ma_user" id="" hidden>
-			<input name="vai_tro" value="khachhang" type="hidden">
+			<input name="vai_tro" value="Khách hàng" type="hidden">
             <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;" type="submit">ĐĂNG KÝ</button>
 		</form>

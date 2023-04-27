@@ -7,7 +7,7 @@
                 <div class="col-sm-8">
                 <div class="form-group">
                         <label>Email</label>
-                        <input name="email" class="form-controls" value="<?=$email?>">
+                        <input name="email" class="form-controls" value="<?=$email?>" readonly disabled>
                     </div>
                     <div class="form-group">
                         <label>Họ và tên</label>

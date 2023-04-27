@@ -154,7 +154,13 @@ function kq_phanTrang_timKiem($search,$start,$limit){
    return pdo_query($sql);
 }
 
+// tìm kiếm hàng hóa phân trang theo từ khóa ADMIN
+function kq_phanTrang_timKiem_admin($search,$start,$limit){
+   $connect = mysqli_connect("localhost", "root", "", "demo-duan1");
 
+   $sql = "SELECT *FROM hang_hoa inner join hinh on hang_hoa.ma_hh = hinh.ma_hh WHERE hinh.vai_tro_hinh = 'đại diện' and (ten_hh like '%$search%') LIMIT $start, $limit";
+   return mysqli_query($connect, $sql);
+}
 
 // đếm hàng hóa theo từ khóa
 function dem_phanTrang_timKiem($search){
@@ -181,6 +187,13 @@ function hh_count_all(){
    $sql = "select count(ma_hh)  from hang_hoa ";
    return pdo_query_value($sql);
 
+}
+// tìm kiếm tất cả hàng hóa ADMIN
+function hh_phan_trang_all_admin($start,$limit){
+   $connect = mysqli_connect("localhost", "root", "", "demo-duan1");
+
+   $sql = "SELECT * FROM hang_hoa inner join hinh on hang_hoa.ma_hh = hinh.ma_hh WHERE hinh.vai_tro_hinh = 'đại diện' order by hang_hoa.ma_hh desc  LIMIT $start, $limit";
+   return mysqli_query($connect, $sql);
 }
 
 // tim kiếm hàng hóa phân trang theo mã loại

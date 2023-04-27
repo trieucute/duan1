@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="content/fontawesome-free-6.1.1-web/css/all.css">
-    <link rel="stylesheet" href="content/MergeBlack.woff">
+    <link rel="stylesheet" href="content/Font/MergeBlack.woff">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 
   <style>
@@ -14,6 +14,10 @@
         height: 100px;
         background-color: white;
     }
+    @font-face {
+    font-family: Mergeblack;
+    src: url(../content/Font/MergeBlack.woff);
+}
   </style>
 </head>
 <body>
