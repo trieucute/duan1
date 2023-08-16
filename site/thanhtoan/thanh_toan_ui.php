@@ -11,19 +11,20 @@
       crossorigin="anonymous"
     />
     <style>
-      label,
+      /* label,
       input::placeholder {
   
         
-      }
+      } */
       hr {
         border-top: 2px solid;
       }
+
     </style>
   </head>
   <body>
     <div class="container">
-      <h2 class="text-center my-5">THANH TOÁN</h2>
+      <h2 class="text-center my-5" style="margin: 1rem 0 !important">THANH TOÁN</h2>
       <div class="row">
         <h3 class="mb-4 mt-4 text-dark fs-3 fw-bold">Thông tin đặt hàng</h3>
         <div class="col-6">
@@ -40,10 +41,11 @@
                 class="form-control p-4 rounded-2"
                 id="inputName"
                 value="<?php if(isset($kh)) echo $kh_info['ho_ten'] ?>"  
-                name="ho_ten"
+                name="ho_ten_nguoi_nhan"
 
                 
               />
+              <div class="error" style="color: #C60000;      font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['ho_ten_nguoi_nhan']) ? $error['ho_ten_nguoi_nhan'] : ''; ?></div>
             </div>
             <div class="col-12 p-2">
               <input
@@ -54,8 +56,9 @@
                 id="inputEmail"
                 value="<?php if(isset($kh['email'])) echo $kh['email'] ?>"  
                 name="email"
-                required
+
               />
+              <div class="error" style="color: #C60000;       font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['email']) ? $error['email'] : ''; ?></div>
             </div>
 
             <div class="col-md-12 p-2">
@@ -69,49 +72,23 @@
                 name="dia_chi"  
 
               />
+              <div class="error" style="color: #C60000;       font-family: Mergeblack;font-weight: bold;" > <?php echo isset($error['dia_chi']) ? $error['dia_chi'] : ''; ?></div>
             </div>
             <div class="col-md-12 p-2">
               <input
                 style="background-color: #e4e4e4"
                 placeholder="Điện thoại"
-                type="text"
+                type="number"
                 class="form-control p-4 text-dark rounded-2"
                 id="inputPhone"
                 value="<?php if(isset($kh)) echo $kh_info['SDT'] ?>"
                 name="SDT"  
-
+              minlength="10"
               />
+              <div class="error" style="color: #C60000;       font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['SDT']) ? $error['SDT'] : ''; ?></div>
             </div>
 
-            <div class="">
-              <div
-              
-                class="col-md-12 form-control rounded-2 "
-                style="background-color: #e4e4e4; height:50px;"
-              >
-                <input
-                checked
-                  style="margin-left: 5px"
-                  name="pttt"
-                  type="radio"
-                  id="tt1"
-                  value="khi nhận hàng"
-                />
-                <label for="tt1" class="" style="      color: rgba(119, 113, 113, 1);
-        font-size: 22px;
-        font-weight: 700;">Thanh toán khi nhận hàng</label>
-                <input
-                  style="margin-left: 20px"
-                  name="pttt"
-                  type="radio"
-                  id="tt2"
-                  value="online"
-                />
-                <label for="tt2" class="" style="      color: rgba(119, 113, 113, 1);
-        font-size: 22px;
-        font-weight: 700;">Thanh toán online</label>
-              </div>
-            </div>
+            
 
             <div class="col-12 my-lg-5 p-1">
               <div class="col-5 d-inline-block p-1 ">
@@ -132,7 +109,7 @@
                 >
               </div>
             </div>
-          </form>
+          <!-- </form> -->
           <h4> <?php 
             if(strlen($message) > 0){
               echo $message;
@@ -199,6 +176,63 @@
               </td>
             </tr>
           </table>
+          <!-- <form class="row g-3" action="thanh_toan.php" method="post"> -->
+          <div class="">
+              <div
+              
+                class="col-md-12 form-control rounded-2 "
+                style="height:200px;"
+              >
+                <input
+                checked
+                  style="margin-left: 5px"
+                  name="pttt"
+                  type="radio"
+                  id="tt1"
+                  value="Khi nhận hàng"
+                />
+                <label for="tt1" class="" style="      color: rgba(119, 113, 113, 1);
+        font-size: 22px;
+        font-weight: 700;    padding: 10px 0;">Thanh toán khi nhận hàng</label>
+        <br>
+                <!-- <input
+                  style="margin-left: 20px"
+                  name="pttt"
+                  type="radio"
+                  id="tt2"
+                  value="Chuyển khoản"
+                />
+                <label for="tt2" class="" style="      color: rgba(119, 113, 113, 1);
+        font-size: 22px;
+        font-weight: 700;">Thanh toán chuyển khoản</label> -->
+           <input
+                  style="margin-left: 5px; margin-top:10px"
+                  name="pttt"
+                  type="radio"
+                  id="tt2"
+                  value="Momo"
+                />
+                <label for="tt2" class="" style="      color: rgba(119, 113, 113, 1);
+        font-size: 22px;
+        font-weight: 700;    padding: 10px 0;">Thanh toán qua Momo</label>
+        <img src="../../content/imgs/momo.png" alt="" width="40px" style="margin-left:30px ;">
+        <br style="margin: 10px;">
+
+        <input
+                  style="margin-left: 5px;margin-top:10px"
+                  name="pttt"
+                  type="radio"
+                  id="tt3"
+                  value="Vnpay"
+                />
+                <label for="tt3" class="" style="      color: rgba(119, 113, 113, 1);
+        font-size: 22px;
+        font-weight: 700;    padding: 10px 0;">Thanh toán qua Vnpay</label>
+        <img src="../../content/imgs/vnpay.png" alt="" width="40px" style="margin-left:30px ;">
+
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="../../content/css/bosuutap.css">
+<!-- <link rel="stylesheet" href="../../content/css/responsive_home.css"> -->
+
 <style>
  
 </style>

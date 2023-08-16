@@ -1,6 +1,14 @@
+<?php 
+// echo "<pre>";
+// print_r($ct_don_da_dat);
 
-  
- <?php print_r($ma_dh);  ?>
+// echo "<pre>";
+// print_r($ct_don_hang);
+
+// echo "<pre>";
+// print_r($hh );
+
+?>
  <!DOCTYPE html>
  <html lang="en">
    <head>
@@ -39,12 +47,20 @@
        .cart-product-info p {
          margin-bottom: 10px;
        }
- 
-     
+       .table-borderless tr:last-child td a{
+        font-size: 20px;
+       }
+       .header_menu {
+        height: 70px;
+   margin:  0 0;
+    background-color: white;
+    box-shadow: 2px 2px grey;
+}
      </style>
    </head>
    <body class="container">
-     <h3 class="text-center my-3 font-weight-bold fs-1 ">CHI TIẾT ĐƠN ĐÃ ĐẶT</h3>
+     <h3 class="text-center my-3 font-weight-bold fs-1 " style="    margin: 0.5rem !important;  font-size: 28px  !important;">ĐƠN HÀNG CỦA BẠN</h3>
+     <h5 class="text-center fw-bold">MÃ ĐƠN HÀNG:<?=$ma_dh ?></h5>
      <div>
        <table class="table table-borderless">
          <thead >
@@ -56,54 +72,79 @@
          </thead>
  
          <tbody>
-         <?php 
-            $cart = $_SESSION['cart'];
-            $total = 0;
-            $i = 0;
-            foreach($cart as $row) {
-              $price_product = 0;
-              $total += $row['don_gia'] * $row['so_luong'];
-              $price_product = $row['don_gia'] * $row['so_luong'];
-          ?>
-          <tr>
-            <td class="col-product">
-              <div class="cart-product d-flex gap-4">
-                <img
-                  src="<?=$img_path?><?=$row['hinh']?>"
-                  alt=""
-                  width="20%"
-                  height="10%"
-                />
+          <?php
+             $total =0;
+           foreach($ct_don_da_dat as $row) : 
+       
+            
+            $price_product = $row['so_luong'] * $row['don_gia'];
+            $total += $price_product; 
 
-                <div class="cart-product-info d-flex flex-column fs-5">
-                  <p style="color: rgba(141, 135, 135, 1);"><?=$row['name'] ?></p>
-                  <p style="color: rgba(141, 135, 135, 1);" ><?=number_format($row['don_gia'],0,",",".")."đ" ?></p>
-                  <p style="color: rgba(141, 135, 135, 1);" >Size: <?=$row['size'] ?></p>
-                </div>
-              </div>
-            </td>
-            <td style="color: rgba(141, 135, 135, 1);" class="fs-5 "><?=$row['so_luong'] ?></td>
-            <td style="color: rgba(141, 135, 135, 1);" class="text-end fs-5 col-price"><?=number_format($price_product,0,",",".")."đ" ?></td>
-              <td class="text-end"> <a href="gio_hang.php?del_item=<?=$i ?>" class="text-dark" ><i style="padding-top: 8px;" class="fa-solid fa-trash"></i></a> </td>
-          </tr>
-              
-          <?php $i++; } ?>
+            ?>
+
+           <tr>
+             <td class="col-product">
+               <div class="cart-product d-flex gap-4">
+                 <img
+                   src="<?=$img_path?><?=$row['hinh']?>"
+                   alt=""
+                   width="20%"
+                   height="10%"
+                 />
+ 
+                 <div class="cart-product-info d-flex flex-column fs-5"><a href="../ct_san_pham/chi-tiet.php?ma_hh=<?=$row['id']?>" style="text-decoration: none;" >
+                   <p style="color: rgba(141, 135, 135, 1);"><?=$row['name'] ?></p>
+                   <p style="color: rgba(141, 135, 135, 1);" ><?=number_format($row['don_gia'],0,",",".")."đ" ?></p>
+                   <p style="color: rgba(141, 135, 135, 1);" >Size: <?=$row['size'] ?></p></a>
+                 </div>
+               </div>
+             </td>
+             <td style="color: rgba(141, 135, 135, 1);" class="fs-5 "><?=$row['so_luong'] ?></td>
+             <td style="color: rgba(141, 135, 135, 1);" class="text-end fs-5 col-price"><?=number_format($price_product,0,",",".")."đ" ?></td>
+           </tr>
+           <?php endforeach ?>
                
            <tr class="">
              <td></td>
              <td colspan="3">
-         
-               <h4 class="text-end my-5 fw-bold">Thành Tiền: <?=number_format($total,0,",",".")."đ" ?></h4>
+              <h5 class="text-end my-5 fw-bold">Phí vận chuyển: 30.000đ</h5>
+               <h4 class="text-end my-5 fw-bold">Tổng Tiền: <?=number_format($total+ 30000,0,",",".")."đ" ?></h4>
+      
+               <?php 
+               
+                $huy = don_hang_huy($ma_dh);
+                foreach ($huy as $h){
+                  if(isset($h['trang_thai'] ) == 'Chờ xác nhận'){ 
+                  // var_dump($h['trang_thai']);
+                  // print_r( $h['trang_thai']);
+                
+                // <!-- var_dump($huy['trang_thai']);
+                // print_r( $huy)
+             
+?>
+               
+               
+               <form action="" method="post">
+                <input type="" name="ma_dh" value="<?= $ma_dh?>" hidden>
+               <h5 class="text-end my-5 fw-bold" ><a href="../donhang/don_hang.php?huy_don_hang&ma_dh=<?=$ma_dh?>" style="color: black; padding:7px 20px;border-radius:5px;    background-color: #F1F397; width: 220px;">Huỷ đơn hàng</a></h5>
+
+               </form>
+             
+               <?php
+                  }
+             }
+              ?>
+                <h5 class="thongbao text-end my-5 fw-bold" style="color: red;    font-family: Mergeblack; ">
+            <?php 
+                if(isset($thongbao)&& ($thongbao!=""))
+                echo $thongbao;?></h5>
+             
              </td>
+           </tr>
+           <tr>
+            <td><a href="../donhang/don_hang.php" style="text-decoration: none; color:black;"> << Quay lại</a></td>
            </tr>
  
-           <tr class="">
-             <td></td>
-             <td colspan="2" class="text-end "><a href="../sanpham/shop.php" class="text-decoration-none"><h5 style="transform: translateY(50%);"><< Tiếp Tục Mua Hàng</h5></a></td>
-             <td colspan="" class="text-end">
-               <a   href="../thanhtoan/thanh_toan.php" class="text-decoration-none">  <p style="background-color: #F1F397 ; width:220px" class="text-center fs-4 fw-bold p-2 rounded-4 text-dark "> THANH TOÁN </p></a>
-             </td>
-           </tr>
          </tbody>
        </table>
      </div>
@@ -123,4 +164,3 @@
      ></script>
    </body>
  </html>
- 

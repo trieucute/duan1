@@ -9,7 +9,9 @@ require "category_edit.php";
     ?>
     <!--  Loại hàng -->
 
-    <div class="container-row-content loai_hang_show" style="<?php echo (isset($_SESSION['user']['vai_tro']) && $_SESSION['user']['vai_tro'] == 'nhan_vien') ? 'display: none;' : '' ?>">
+    <div class="container-row-content loai_hang_show"  style="<?php
+                                                                    echo (isset($_SESSION['user']['vai_tro']) && $_SESSION['user']['vai_tro'] == 'Nhân viên') ? ' display: none;' : ''
+                                                                    ?>">
         <h2>QUẢN LÝ LOẠI HÀNG</h2>
         <div class="list-chart" style="  margin-top: 70px;">
             <table class="sp-table">
@@ -25,6 +27,7 @@ require "category_edit.php";
 <?php
     $conn = mysqli_connect('localhost', 'root', '', 'demo-duan1');
     // BƯỚC 2: TÌM TỔNG SỐ RECORDS
+    mysqli_set_charset($conn, 'UTF8');
     $result = mysqli_query($conn, 'select count(ma_loai) as total from loai');
     $row = mysqli_fetch_assoc($result);
     $total_records = $row['total'];
@@ -84,7 +87,9 @@ require "category_edit.php";
                 <!-- <button>Xoá</button> -->
             </div>
         </div>
-    </div>  <nav aria-label="Page navigation example">
+    </div>  <nav aria-label="Page navigation example"  style="<?php
+                                                                    echo (isset($_SESSION['user']['vai_tro']) && $_SESSION['user']['vai_tro'] == 'Nhân viên') ? ' display: none;' : ''
+                                                                    ?>">
     <ul class="pagination">
        <?php 
         // PHẦN HIỂN THỊ PHÂN TRANG

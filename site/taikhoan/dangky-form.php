@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="../../content/css/login.css">
+<link rel="stylesheet" href="../../content/css/home_respons.css">
+
 <style>
 	#container-login input {
 	background-color: #EDEDED;
@@ -18,12 +20,37 @@
 
 
 }
+.container-login {
+    /* background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto; */
+    width: 55%;
+}
 .container-login.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 	opacity: 0;
 	z-index: 3;
 	display: none;
 	animation: show 0.6s;
+}
+#container-login form {
+    /* background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    padding: 0 30px !important;
+    /* height: 100%;
+    text-align: center; */
+}
+.form-container form h1, .h1 {
+    font-size: 2.2rem !important;
+}
+.social-container {
+    margin: 10px 0 !important;
 }
 </style>
 <div class="container-login right-panel-active" id="container-login">
@@ -42,9 +69,10 @@
             <input name="mat_khau2" type="password" placeholder="Xác nhận mật khẩu"  minlength="6">
 
 			<input type="text" name="ma_user" id="" hidden>
-			<input name="vai_tro" value="khachhang" type="hidden">
+			<input name="vai_tro" value="Khách hàng" type="hidden">
             <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;" type="submit">ĐĂNG KÝ</button>
+			<p class="dk_mobile" style=" display:none"><a href="../taikhoan/dangnhap.php" style="color:red; font-size:16px;"> Đăng nhập</a> nếu bạn đã có tài khoản</p>
 		</form>
 		
 		

@@ -15,7 +15,7 @@
             text-align: justify;
         }
        .content-aboutus p{
-            font-size: 25px;
+            font-size: 21px;
             font-family: 'Signika Negative';
 
             text-align: justify;
@@ -76,9 +76,10 @@
         .bgr-contact h1{
             position: absolute;
             color: black;
-            left: 25%;
+            left: 30%;
             top: 30%;
-            opacity: 100%
+            opacity: 100%;
+            font-size: 30px;
         }
         .bgr-contact .foot{
             position: absolute;
@@ -134,10 +135,10 @@
             </div>
             <div class="box">
                 <div class="left">
-                    <img src="../../content/imgs/hinhThuongHieu2.png" alt="" style="position: absolute; width: 975px; height: 440px; right: 12px;">
+                    <img src="../../content/imgs/hinhThuongHieu2.png" alt="" style="position: absolute; width: 50%; height: 440px; right: 12px; object-fit:cover">
                 </div>
                 <div class="right">
-                    <img src="../../content/imgs/hinhThuongHieu3.png" alt="" style="position: absolute; width: 830px; height: 440px; left: 20px;">
+                    <img src="../../content/imgs/paris-fashion-week-mens-street-style-fall-2019.jpg" alt="" style="position: absolute; width: 50%; height: 440px;  object-fit:cover;left: 20px;">
                 </div>
                 
             </div>

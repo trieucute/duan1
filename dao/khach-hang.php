@@ -38,12 +38,12 @@ function khachhang_mauser($email){
 //Cập nhật thông tin 1 khách hàng
 // UPDATE user SET mat_khau=".$mat_kh4324au.",ho_ten=".$ho_t3442en.",email=".$emai432432l",vai_tro="$va432432i_tro" where ma_user=73;
 // UPDATE khachhang set ho_ten=".$ho_t3442en.",hinh='hiđsad34234nh' where ma_user=73
-function khach_hang_update_hinh($ma_user,$mat_khau,$email, $hinh,$vai_tro){
+function khach_hang_update_hinh($ma_user,$email,$hinh){
     if($hinh!=""){
-   $sql = "UPDATE user SET mat_khau='".$mat_khau."',email='".$email."',hinh='".$hinh."' ,vai_tro='".$vai_tro."' WHERE ma_user='".$ma_user."' ";
+   $sql = "UPDATE user SET email='".$email."',hinh='".$hinh."'  WHERE ma_user='".$ma_user."' ";
 }else{
       
-    $sql = "UPDATE user SET mat_khau='".$mat_khau."',email='".$email."'' ,vai_tro='".$vai_tro."' WHERE ma_user='".$ma_user."' ";
+    $sql = "UPDATE user SET email='".$email."' WHERE ma_user='".$ma_user."' ";
  }
     pdo_execute($sql);
 }

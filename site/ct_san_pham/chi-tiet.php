@@ -15,6 +15,12 @@ $hang_hoa = sp_load($ma_hh);
 extract($hang_hoa);
 // print_r($hang_hoa);
 tang_lx($ma_hh);
+// lấy số lượng size
+$so_luong_size_s = hh_so_luong_size($ma_hh,"s");
+$so_luong_size_m = hh_so_luong_size($ma_hh,"m");
+$so_luong_size_l = hh_so_luong_size($ma_hh,"l");
+$so_luong_size_xl = hh_so_luong_size($ma_hh,"xl");
+$so_luong_size_xxl = hh_so_luong_size($ma_hh,"xxl");
 // echo $hinh;
 if(exist_param("noi_dung")){
     $ma_kh=$_SESSION['user']['ma_kh'];

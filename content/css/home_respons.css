@@ -1,0 +1,1224 @@
+@media screen and (min-width: 1200px) {
+    .tech-slideshow .mover {
+        animation: moveSlideshow 4s linear infinite alternate;
+    }
+    .img-logo-foot{
+        display: none;
+    }
+    #none{
+        display: none;
+
+    }
+          /* trang tin tức */
+.tintuc{
+    justify-content: flex-start;
+
+}
+  
+          .tin-container {
+            width: 90% !important;
+            margin: 0 auto;
+        }
+         .tin {
+            width: 50% !important;
+            margin: 0 0 !important;
+            padding: 0 10px !important;
+            justify-content: flex-start;
+            /* height: 16rem !important; */
+    
+        }
+    .tin > .anh{
+        width: 60% !important;
+    }
+    .tin > .content-text-tin{
+        width: 40% !important;
+    
+    }
+    .tin > .content-text-tin h1{
+        font-size: 24px !important;
+    }
+    .tin > .content-text-tin h5{
+        font-size: 16px !important;
+    }
+    .tin>.anh>img {
+            width: 100% !important;
+            height: 14rem !important;
+            object-fit: cover !important;
+            
+        }
+        .btn-group .button {
+            font-size: 15px !important;
+        }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px){
+            /* banner*/
+.display-4{
+    font-size: 34px !important;
+}
+.text-light{
+    font-size: 20px !important;
+
+}
+    /* danh muc san pham*/
+
+    .tech-slideshow>div{
+        width: 100% !important;
+    }
+    .tech-slideshow .mover {
+        animation: moveSlideshow 0s linear infinite alternate !important;
+        width: 100% !important;
+    }
+    @keyframes move_Slideshow {
+        100% {
+            transform: translateX(0%);
+       
+        }
+      
+    }
+    .text {
+        font-size: 17px;
+        padding-left: 5px;
+    top: 75%  !important;
+        /* top: 80%  !important; */
+    }
+    .tech-slideshow {
+        /* height: 250px; */
+        width:100%;
+        height: 20rem;
+    }
+    .flex-row-sp {
+        width: 23%;
+        /* height: 23rem; */
+        margin: 10px 6px;
+        
+    }
+    .item {
+        height: 18rem;
+        width: 25% !important;
+    }
+    
+ /* bộ sưu tập*/
+.bosuutap{
+    margin: 20px 0 !important;
+}
+.bosuutap .content{
+    margin: 5px !important;
+}
+.bosuutap #content1{
+    height: 22em !important;
+    width: 30% !important;
+}
+.bosuutap #content2{
+    height: 16em !important;
+    width: 40% !important;
+
+}
+.bosuutap .img>img{
+    width: 15em !important; 
+    height: 20em !important;
+    margin-left: 3em !important;
+}
+.bosuutap .img1>img{
+  width: 15em !important;
+  height: 20em !important;
+    margin-left: 3em !important;
+    text-align: right;
+    margin-top: 1em !important;
+}
+.bosuutap .content-bst{
+    margin-left: 2em !important;
+}
+.bosuutap .content-bst>h1{
+    font-size: 30px !important;
+}
+.bosuutap h2{
+    font-size: 25px !important;
+}
+.bosuutap h4{
+    font-size: 20px !important; 
+}
+.btn-cont {
+    color: black;
+    margin-left: 2em !important;
+    margin-top: 2em !important; 
+  }
+  .btn-cont .btn {
+    padding: 10px 15px !important;
+    font-size: 1em !important;
+  }
+
+    /* top san pham ban chạy*/
+
+    #sanpham {
+        flex-wrap: wrap;
+           overflow :hidden;
+        justify-content:center;
+    }
+  
+    .row-sp{
+        
+    }
+    .sp h5 {
+        height: 3em;
+        /* font-size: 15px; */
+    }
+    .gia{
+        /* font-size: 16px; */
+
+    }
+    .sp{
+        width: 100%;
+    }
+    .sp img {
+        height: 19rem;
+        border-radius: 10px;
+        /* width: 100%; */
+        object-fit: cover;
+    }
+    .img-logo-foot{
+        display: none;
+    }
+    #none{
+        display: none;
+
+    }
+       /*   ======trang sản phẩm======*/
+       .box-content-fot{
+        height: 18rem;
+    }
+    .text-content-fot {
+        font-size: 27px ;
+        padding: 6rem 4rem;
+    }
+        .img-fot1, .img-fot2 {
+    
+        height: 20rem !important;
+        
+        width: 15% !important;}
+
+          /* trang tin tức */
+
+  
+          .tin-container {
+            width: 95% !important;
+            margin: 0 auto;
+        }
+         .tin {
+            width: 50% !important;
+            margin: 20px 0 !important;
+            padding: 0 10px !important;
+            height: 13rem !important;
+    
+        }
+    .tin > .anh{
+        width: 50% !important;
+    }
+    .tin > .content-text-tin{
+        width: 50% !important;
+    
+    }
+    .tin > .content-text-tin h1{
+        font-size: 24px !important;
+    }
+    .tin > .content-text-tin h5{
+        font-size: 18px !important;
+    }
+    .tin>.anh>img {
+            width: 100% !important;
+            height: 100% !important;
+            
+        }
+        .btn-group .button {
+            font-size: 18px !important;
+        }
+        /* trang đăng nhâp */
+        .container-login {
+            width: 70% !important;
+        }
+}
+
+
+/* */
+@media screen and (min-width: 768px) and (max-width: 992px){
+    /* banner*/
+.carousel-item {
+    height: 30rem !important;
+}
+.display-4{
+    font-size: 27px !important;
+}
+.text-light{
+    font-size: 17px !important;
+
+}
+    /* danh muc san pham*/
+    .tech-slideshow>div{
+        width: 100% !important;
+    }
+    .tech-slideshow .mover {
+        animation: moveSlideshow 0s linear infinite alternate !important;
+        width: 100% !important;
+    }
+    @keyframes move_Slideshow {
+        100% {
+            transform: translateX(0%);
+       
+        }
+      
+    }
+    .text {
+       font-size: 15px;
+            padding-left: 5px;
+        top: 75%  !important;
+    }
+    .tech-slideshow {
+        height: 250px;
+        width:100%;
+    
+    }
+    .flex-row-sp {
+        width: 23%;
+        /* height: 23rem; */
+        margin: 10px 6px;
+        
+    }
+    .item {
+        /* border-radius: 20px; */
+        width: 50% !important;
+    }
+/* bộ sưu tập*/
+.bosuutap{
+    margin: 20px 0 !important;
+}
+.bosuutap .content{
+    margin: 5px !important;
+}
+.bosuutap #content1{
+    height: 20em !important;
+
+}
+.bosuutap #content2{
+    height: 16em !important;
+    width: 60% !important;
+
+}
+.bosuutap .img>img{
+    width: 14em !important; 
+    height: 19em !important;
+    margin-left: 3em !important;
+}
+.bosuutap .img1>img{
+  width: 14em !important;
+  height: 19em !important;
+    margin-left: 3em !important;
+    margin-top: 1em !important;
+}
+.bosuutap .content-bst{
+    margin-left: 2em !important;
+}
+.bosuutap .content-bst>h1{
+    font-size: 27px !important;
+}
+.bosuutap h2{
+    font-size: 23px !important;
+}
+.bosuutap h4{
+    font-size: 18px !important; 
+}
+.btn-cont {
+    color: black;
+    margin-left: 2em !important;
+    margin-top: 2em !important; 
+  }
+  .btn-cont .btn {
+    padding: 5px 10px !important;
+    font-size: 0.7em !important;
+  }
+
+
+    /* top san pham ban chạy*/
+
+    #sanpham {
+        flex-wrap: wrap;
+           overflow :hidden;
+        justify-content:baseline;
+    }
+    .flex-row-sp {
+        width: 32%;
+        /* height: 23rem; */
+        margin: 10px 3px;
+        
+    }
+    .row-sp{
+        
+    }
+    .sp h5 {
+        height: 3em;
+        font-size: 15px;
+    }
+    .gia{
+        font-size: 16px;
+
+    }
+    .sp{
+        width: 100%;
+    }
+    .sp img {
+        height: 19rem;
+        border-radius: 10px;
+        /* width: 100%; */
+        object-fit: cover;
+    }
+
+    .footer .container{
+        max-width: 800px;
+        font-size: 18px;
+    }
+    .img-logo-foot{
+        display: none;
+    }
+    #none{
+        display: none;
+
+    }
+    /*   ======trang sản phẩm======*/
+    .box-content-fot{
+        height: 13rem;
+    }
+    .text-content-fot {
+        font-size: 20px ;
+        padding: 5rem 4rem;
+    }
+        .img-fot1, .img-fot2 {
+    
+        height: 15rem !important;
+        
+        width: 15% !important;}
+        .locsp .row-loc {
+        
+            width: 5rem;
+            font-size: 19px;
+          
+        }
+          /* phân trang */
+    .pagination {
+        font-size: 18px;
+    }
+      /* trang tin tức */
+
+  
+      .tin-container {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+     .tin {
+        width: 98% !important;
+        margin: 20px auto;
+        height: 13rem !important;
+
+    }
+.tin > .anh{
+    width: 50% !important;
+}
+.tin > .content-text-tin{
+    width: 50% !important;
+
+}
+.tin > .content-text-tin h1{
+    font-size: 23px !important;
+}
+.tin > .content-text-tin h5{
+    font-size: 17px !important;
+}
+.tin>.anh>img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    .btn-group .button {
+        font-size: 17px !important;
+    }
+
+    
+      /* trang đăng nhâp */
+      .container-login {
+        width: 100% !important;
+    }
+    .overlay-container {
+        display: none;
+    }
+    /* #container-login form  {
+
+    } */
+    .sign-in-container{
+        width: 100%;
+    }
+    .sign-up-container{
+         transform: translateX(0%) !important;
+        width: 100%;
+
+    }
+    #container-login input {
+        font-size: 14px;
+        width: 50% !important;
+    }
+    #container-login button {
+        font-size: 14px;
+    }
+    .dk_mobile{
+        display: block !important;
+    }
+    /* trang chi tiết */
+    .product-detail{
+        margin: 0 0 !important;
+        max-width: 100% !important;
+    }
+    /* .row {
+      
+        width: 90% !important;
+    } */
+    .w-100 {
+        width: 70% !important;
+    }
+    .col-lg-5{
+        margin: 0 auto !important;
+        text-align: center;
+    }
+    .img-fluid {
+        margin: 0 auto !important;
+        max-width: 70% !important;
+        /* object-fit: cover; */
+        height:39rem !important;
+    }
+    .d-flex {
+        display: flex !important;
+
+    }.ps-4 {
+        padding-left: 3.5rem!important;
+    }
+    .flex-column {
+        margin-left: -35px !important;
+        flex-direction: row !important;
+        /* flex-wrap: wrap !important; */
+        margin-top: 10px;
+    }
+    .p-0{
+        width: 50% !important;
+        text-align: center;
+        height: 8rem !important;
+        display: flex !important;
+        justify-content: center;
+        /* margin-left: 20px; */
+    }
+    .small-img-col{
+        width: 30% !important;
+        border-radius: 10px !important;
+        height: 7rem !important;
+    }
+    /* giỏ hàng */
+    .table {
+        /* width: 70%;
+        margin-bottom: 1rem;
+        color: #6F6F6F; */
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 768px){
+    /* banner*/
+    .carousel-item {
+        height: 24rem !important;
+    }
+.display-4{
+    font-size: 23px !important;
+}
+.text-light{
+    font-size: 15px !important;
+
+}
+    /* danh mục san phẩm*/
+    .box-list{
+        display: none;
+    }
+/* bộ sưu tập*/
+.bosuutap{
+    margin: 10px 0 !important;
+}
+.bosuutap .content{
+    margin: 5px !important;
+}
+.bosuutap #content1{
+    height: 13em !important;
+
+}
+.bosuutap #content2{
+    height: 10em !important;
+    width: 60% !important;
+
+}
+.bosuutap .img>img{
+    width: 9em !important; 
+    height: 12em !important;
+    margin-left: 3em !important;
+}
+.bosuutap .img1>img{
+  width: 9em !important;
+  height: 12em !important;
+    margin-left: 0.1em !important;
+    margin-top: 1em !important;
+}
+.bosuutap .content-bst{
+    margin-left: 2em !important;
+}
+.bosuutap .content-bst>h1{
+    font-size: 23px !important;
+}
+.bosuutap h2{
+    font-size: 20px !important;
+}
+.bosuutap h4{
+    font-size: 14px !important; 
+}
+.btn-cont {
+    color: black;
+    margin-left: 2em !important;
+    margin-top: 2em !important; 
+  }
+  .btn-cont .btn {
+    padding: 5px 10px !important;
+    font-size: 0.7em !important;
+  }
+
+
+    /* top san pham ban chạy*/
+
+    #sanpham {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .flex-row-sp {
+        width: 48%;
+        /* height: 23rem; */
+        margin: 10px 3px;
+        
+    }
+    .row-sp{
+        
+    }
+    .sp h5 {
+        height: 3em;
+        font-size: 15px;
+    }
+    .gia{
+        font-size: 16px;
+
+    }
+    .sp{
+        width: 100%;
+    }
+    .sp img {
+        height: 19rem;
+        border-radius: 10px;
+        /* width: 100%; */
+        object-fit: cover;
+    }
+/* footer*/
+  
+    .footer .container{
+        width: 100% !important;
+        padding: 0 0 !important;
+        /* margin: 0 auto !important; */
+    }
+    .footer .container .row{
+        width: 100% !important;
+        padding: 0 0 !important;
+    }
+    .footer-col:first-child{
+        display: none !important;
+    }
+    .social-links-none{
+        display: none !important ;
+
+    }
+    .footer-col {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+.footer1{
+    display: none !important;
+  }
+  .s1{
+    display: none !important;
+  }
+  footer{
+    text-align: center !important;
+  }
+  .footer{
+    text-align: center !important;
+  }
+  .footer-col h4::before{
+    background-color: white !important;
+  }
+  footer img{
+    width: 100px;
+    height: 50px;
+  }
+  .footer-col {
+   
+    text-align: center !important;
+  }
+.img-logo-foot{
+    width: 100%;
+    height: 4.5em;
+    margin: 20px 0;
+}
+.img-logo-foot img{
+    width: 40%;
+    height: 100%;
+  /* object-fit: cover; */
+}
+
+
+
+.social-links-none {
+    display: block !important;
+}
+
+/*  email bản tin*/
+.img-right {
+    display: none;
+}
+.text-mail{
+    width: 100%;
+    padding-top: 0px ;
+    font-size: 26px !important;
+
+}
+.input-mail{
+    width: 85% !important;
+}
+.input-mail input{ 
+    width: 70% !important;
+    font-size: 15px  !important;
+}
+.input-mail button{ 
+    width: 20% !important;
+    margin-left: 10px;
+    padding: 9px 12px !important;;
+     font-size: 16px  !important; 
+}
+.mail-content>img{
+  width: 80px;
+  height: 100px ;
+}
+.text-comt {
+   display: none !important;
+}
+.mail-content {
+  display:flex;
+  margin: 10px 0 !important;
+  height: 130px !important;
+  justify-content:center;
+    flex-direction: column;
+}
+.mail-content .a2{
+  width: 80px;
+  height: 100px;
+}
+.mail-content .img-right img{
+  width: 80px;
+  height: 100px;
+}
+   /*   ======trang sản phẩm======*/
+   .box-content-fot{
+    height: 10rem;
+}
+.text-content-fot {
+    font-size: 19px ;
+    padding: 3.5rem 4rem;
+}
+    .img-fot1, .img-fot2 {
+
+    height: 13rem !important;
+    
+    width: 12% !important;}
+    .locsp .row-loc {
+        
+        width: 5rem;
+        font-size: 17px;
+      
+    }
+      /* phân trang */
+      .pagination {
+        font-size: 17px;
+    }
+    /* animation text*/
+    .text-animation {
+ 
+        height: 6em;}
+    marquee {
+        line-height: 3.5em;
+        font-size: 26px;
+    }
+    marquee span {
+        /* line-height: 3em; */
+        font-size: 27px !important;
+    }
+ 
+     /* trang tin tức */
+
+     .tieude>h2 {
+        font-size: 1.8em !important;
+     }
+     .tin-container {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+     .tin {
+        width: 98% !important;
+        margin: 20px auto;
+        height: 10rem !important;
+
+    }
+.tin > .anh{
+    width: 50% !important;
+}
+.tin > .content-text-tin{
+    width: 50% !important;
+
+}
+.tin > .content-text-tin h1{
+    font-size: 21px !important;
+}
+.tin > .content-text-tin h5{
+    font-size: 15px !important;
+}
+.tin>.anh>img {
+        width: 100% !important;
+        height: 100% !important;
+        
+    }
+    .btn-group .button {
+        font-size: 15px !important;
+    }
+
+    /* trang đăng nhâp */
+    .container-login {
+        width: 100% !important;
+    }
+    .overlay-container {
+        display: none;
+    }
+    /* #container-login form  {
+
+    } */
+    .sign-in-container{
+        width: 100%;
+    }
+    .sign-up-container{
+         transform: translateX(0%) !important;
+        width: 100%;
+
+    }
+    #container-login input {
+        font-size: 14px;
+        width: 70% !important;
+    }
+    #container-login button {
+        font-size: 14px;
+    }
+    .dk_mobile{
+        display: block !important;
+    }
+     /* trang chi tiết */
+     .product-detail{
+        margin: 0 0 !important;
+        max-width: 100% !important;
+    }
+    /* .row {
+      
+        width: 90% !important;
+    } */
+    .w-100 {
+        width: 70% !important;
+    }
+    .col-lg-5{
+        margin: 0 auto !important;
+        text-align: center;
+    }
+    .img-fluid {
+        margin: 0 auto !important;
+        max-width: 60% !important;
+        /* object-fit: cover; */
+        height:30rem !important;
+    }
+    .d-flex {
+        display: flex !important;
+
+    }
+    .ps-4 {
+        padding-left: 2.5rem!important;
+    }
+    .flex-column {
+        margin-left: -34px !important;
+        flex-direction: row !important;
+        /* flex-wrap: wrap !important; */
+        margin-top: 10px;
+    }
+    .p-0{
+        width: 50% !important;
+        text-align: center;
+        height: 8rem !important;
+        display: flex !important;
+        justify-content: center;
+        /* margin-left: 20px; */
+    }
+    .small-img-col{
+        width: 30% !important;
+        border-radius: 10px !important;
+        height: 7rem !important;
+    }
+}
+@media screen and  (max-width: 576px){
+/* banner*/
+.carousel-item {
+    height: 20rem !important;
+}
+.display-4{
+    font-size: 18px !important;
+}
+.text-light{
+    font-size: 12px !important;
+
+}
+    /* danh mục san phẩm*/
+    .box-list{
+        display: none;
+    }
+/* bộ sưu tập*/
+.bosuutap{
+    margin: 20px 0 !important;
+}
+.bosuutap .content{
+    margin: 5px !important;
+}
+.bosuutap #content1{
+    height: 14em !important;
+    width: 30% !important;
+}
+.bosuutap #content2{
+    height: 10em !important;
+    width: 40% !important;
+
+}
+.bosuutap .img>img{
+    width: 9em !important; 
+    height: 12em !important;
+    margin-left: 0em !important;
+}
+.bosuutap .img1>img{
+  width: 9em !important;
+  height: 12em !important;
+    margin-left: 0.1em !important;
+    margin-top: 1em !important;
+}
+.bosuutap .content-bst{
+    margin-left: 2em !important;
+}
+.bosuutap .content-bst>h1{
+    font-size: 23px !important;
+}
+.bosuutap h2{
+    font-size: 18px !important;
+}
+.bosuutap h4{
+    font-size: 12px !important; 
+}
+.btn-cont {
+    color: black;
+    margin-left: 2em !important;
+    margin-top: 0em !important; 
+  }
+  .btn-cont .btn {
+    padding: 3px 6px !important;
+    font-size: 0.5em !important;
+  }
+
+
+
+    /* top san pham ban chạy*/
+
+    #sanpham {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .flex-row-sp {
+        width: 48%;
+        /* height: 23rem; */
+        margin: 10px 3px;
+        
+    }
+    .row-sp{
+        
+    }
+    .sp h5 {
+        height: 3em;
+        font-size: 15px;
+    }
+    .gia{
+        font-size: 16px;
+
+    }
+    .sp{
+        width: 100%;
+    }
+    .sp img {
+        height: 15rem;
+        border-radius: 10px;
+        /* width: 100%; */
+        object-fit: cover;
+    }
+/* footer*/
+.footer1{
+    display: none !important;
+  }
+  .s1{
+    display: none !important;
+  }
+  footer{
+    text-align: center !important;
+  }
+  .footer{
+    text-align: center !important;
+  }
+  .footer .container{
+    text-align: center !important;
+    margin:  0 auto !important;
+  }
+  .footer-col h4::before{
+    background-color: white !important;
+  }
+  
+  footer img{
+    width: 100px;
+    height: 50px;
+  }
+  .footer-col {
+   
+    text-align: center !important;
+  }
+.img-logo-foot{
+    width: 100%;
+    height: 4.5em;
+    margin: 20px 0;
+}
+.img-logo-foot img{
+    width: 40%;
+    height: 100%;
+  /* object-fit: cover; */
+}
+
+
+
+  
+
+.text-comt{
+    display: none;
+}
+
+
+
+.img-right {
+    display: none;
+}
+.text-mail{
+    width: 30%;
+    padding-top: 10px;
+    font-size: 23px;
+
+}
+.input-mail{
+    width: 70%;
+}
+.input-mail input{ 
+    width: 60%;
+    font-size: 11px;
+}
+.input-mail button{ 
+    width: 30%;
+    margin-left: 10px;
+    padding: 8.5px 12px;
+     font-size: 13px;
+}
+.mail-content>img{
+  width: 80px;
+  height: 100px;
+}
+.mail-content {
+  /* display: none; */
+  justify-content: flex-start;
+    flex-direction: column;
+}
+.mail-content .a2{
+  width: 80px;
+  height: 100px;
+}
+.mail-content .img-right img{
+  width: 80px;
+  height: 100px;
+}
+  /*   ======trang sản phẩm======*/
+  .box-content-fot{
+    height: 9rem;
+}
+.text-content-fot {
+    font-size: 17px ;
+    padding: 3.5rem 2rem;
+}
+    .img-fot1, .img-fot2 {
+
+    height: 12rem !important;
+    
+    width: 14% !important;}
+
+    .locsp .row-loc {
+        
+        width: 5rem;
+        font-size: 15px;
+      
+    }
+    /* phân trang */
+    .pagination {
+        font-size: 15px;
+    }
+
+     /* animation text*/
+     .text-animation {
+ 
+        height: 4em;}
+    marquee {
+        line-height: 3em;
+        font-size: 18px;
+    }
+    marquee span {
+        /* line-height: 3em; */
+        font-size: 20px !important;
+    }
+     /* trang tin tức */
+     .tieude>h2 {
+        font-size: 1.6em !important;
+     }
+  
+    .tin-container {
+        width: 100% !important;
+       
+    }
+     .tin {
+        width: 98% !important;
+        margin: 15px auto;
+        height: 10rem !important;
+
+    }
+.tin > .anh{
+    width: 50% !important;
+}
+.tin > .content-text-tin{
+    width: 50% !important;
+
+}
+.tin > .content-text-tin h1{
+    font-size: 18px !important;
+}
+.tin > .content-text-tin h5{
+    font-size: 13px !important;
+}
+.tin>.anh>img {
+        width: 100% !important;
+        height: 100% !important;
+        
+    }
+    .btn-group .button {
+        font-size: 12px !important;
+    }
+    /* trang đăng nhâp */
+    .container-login {
+        width: 100% !important;
+    }
+    .overlay-container {
+        display: none;
+    }
+    /* #container-login form  {
+
+    } */
+    .sign-in-container{
+        width: 100%;
+    }
+    .sign-up-container{
+         transform: translateX(0%) !important;
+        width: 100%;
+
+    }
+    #container-login input {
+        font-size: 13px;
+        width: 80% !important;
+    }
+    #container-login button {
+        font-size: 13px;
+    }
+    .dk_mobile{
+        display: block !important;
+    }
+     /* trang chi tiết */
+     .product-detail{
+        margin: 0 0 !important;
+        max-width: 100% !important;
+    }
+    /* .row {
+      
+        width: 90% !important;
+    } */
+    .w-100 {
+        width: 70% !important;
+    }
+    .col-lg-5{
+        margin: 0 auto !important;
+        text-align: center;
+    }
+    .img-fluid {
+        margin: 0 auto !important;
+        max-width: 70% !important;
+        /* object-fit: cover; */
+        height:23rem !important;
+    }
+    .d-flex {
+        display: flex !important;
+
+    }
+    .ps-4 {
+        padding-left: 1.5rem!important;
+    }
+    .flex-column {
+        margin-left: -4px !important;
+        flex-direction: row !important;
+        /* flex-wrap: wrap !important; */
+        margin-top: 10px;
+    }
+    .p-0{
+        width: 50% !important;
+        text-align: center;
+        height: 6rem !important;
+        display: flex !important;
+        justify-content: center;
+        /* margin-left: 20px; */
+    }
+    .small-img-col{
+        width: 30% !important;
+        border-radius: 10px !important;
+        height: 5rem !important;
+    }
+    .cmt-input .col-sm-11 {
+        width: 70% !important;
+    }
+    .cmt-input .col-sm-1 {
+        margin-top: 1px !important;
+        width: 30% !important;
+    }
+}

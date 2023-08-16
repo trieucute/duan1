@@ -21,6 +21,7 @@
       src="https://kit.fontawesome.com/f892788311.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="../../content/css/home_respons.css">
 
     <title>Document</title>
     <style>
@@ -29,7 +30,21 @@
         padding: 0;
         box-sizing: border-box;
       }
+      .box-content-fot {
 
+width: 90%;}
+.text-content-fot {
+
+z-index: 1;
+position: absolute;}
+.img-fot1, .img-fot2 {
+
+height: 35rem;
+
+width: 18%;}
+.pagination {
+    justify-content: center;
+flex-wrap: wrap;}
       th,
       td,
       .thanh_tien {
@@ -56,11 +71,14 @@ input[type="number"]::-webkit-outer-spin-button {
   border: none;
   background-color: rgba(217, 217, 217, 1);
 }
-
+.containers, .container-sm {
+    width: 90%;
+    margin: 0 auto;
+}
     
     </style>
   </head>
-  <body class="container">
+  <body class="containers">
     <h3 class="text-center my-3 font-weight-bold fs-1 ">GIỎ HÀNG CỦA BẠN</h3>
     <div>
       <table class="table table-borderless">

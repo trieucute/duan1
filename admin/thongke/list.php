@@ -1,11 +1,21 @@
 <?php
 include_once "currency_format.php";
 require_once "../../dao/pdo.php";
+require_once "../../global.php";
 require_once "../../dao/thongke.php";
-require_once "../../dao/hanghoa.php"; ?>
+require_once "../../dao/hanghoa.php"; 
+$connect = mysqli_connect("localhost", "root", "", "demo-duan1");
+// if (!isset($_SESSION['user']['vai_tro']) && ($_SESSION['user']['vai_tro'] != 'admin'  || $_SESSION['user']['vai_tro'] != 'Nhân viên')) {
+//     header('Location: /404/');
+//     exit;
+// }
+check_login();
+
+?>
 
 <head>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 </head>
 <style>
@@ -84,148 +94,86 @@ require_once "../../dao/hanghoa.php"; ?>
 
     </div>
     <div class="row-content-mid ">
-        <div class="chart">
-            <!-- <canvas id="myChart" style="width:100%;max-width:900px; text-align: center;margin: 0 auto; "></canvas> -->
-            <?php
-            // $sql_ao_khoac = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%áo khoác%'";
-            // $query_ao_khoac = mysqli_query($conn, $sql_ao_khoac);
-            // $count_ao_khoac = mysqli_num_rows($query_ao_khoac);
+            <div class="chart">
+                <canvas id="myChart" style="width:100%;max-width:900px; text-align: center;margin: 0 auto; "></canvas>
+                <?php
+                $sql_ao_khoac = "SELECT COUNT(*) as tong_ao_khoac FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%áo khoác%'";
+                $query_ao_khoac = mysqli_query($connect, $sql_ao_khoac);
+                $count_ao_khoac = mysqli_fetch_assoc($query_ao_khoac);
+                $tong_ao_khoac = $count_ao_khoac['tong_ao_khoac'];
 
-            // $sql_ao_thun = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%áo thun%'";
-            // $query_ao_thun = mysqli_query($conn, $sql_ao_thun);
-            // $count_ao_thun = mysqli_num_rows($query_ao_thun);
+                $sql_ao_thun = "SELECT COUNT(*) as tong_ao_thun FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%áo thun%'";
+                $query_ao_thun = mysqli_query($connect, $sql_ao_thun);
+                $count_ao_thun = mysqli_fetch_assoc($query_ao_thun);
+                $tong_ao_thun = $count_ao_thun['tong_ao_thun'];
 
-            // $sql_ao_len = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%áo len%'";
-            // $query_ao_len = mysqli_query($conn, $sql_ao_len);
-            // $count_ao_len = mysqli_num_rows($query_ao_len);
+                $sql_ao_len = "SELECT COUNT(*) as tong_ao_len FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%áo len%'";
+                $query_ao_len = mysqli_query($connect, $sql_ao_len);
+                $count_ao_len = mysqli_fetch_assoc($query_ao_len);
+                $tong_ao_len = $count_ao_len['tong_ao_len'];
 
-            // $sql_so_mi = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%sơ mi%'";
-            // $query_so_mi = mysqli_query($conn, $sql_so_mi);
-            // $count_so_mi = mysqli_num_rows($query_so_mi);
+                $sql_so_mi = "SELECT COUNT(*) as tong_so_mi FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%sơ mi%'";
+                $query_so_mi = mysqli_query($connect, $sql_so_mi);
+                $count_so_mi = mysqli_fetch_assoc($query_so_mi);
+                $tong_so_mi = $count_so_mi['tong_so_mi'];
 
-            // $sql_quan = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%quần%'";
-            // $query_quan = mysqli_query($conn, $sql_quan);
-            // $count_quan = mysqli_num_rows($query_quan);
+                $sql_quan = "SELECT COUNT(*) as tong_quan FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%quần%'";
+                $query_quan = mysqli_query($connect, $sql_quan);
+                $count_quan = mysqli_fetch_assoc($query_quan);
+                $tong_quan = $count_quan['tong_quan'];
 
-            // $sql_tui_sach = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%túi sách%'";
-            // $query_tui_sach = mysqli_query($conn, $sql_tui_sach);
-            // $count_tui_sach = mysqli_num_rows($query_tui_sach);
+                $sql_tui_sach = "SELECT COUNT(*) as tong_tui_sach FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%túi sách%'";
+                $query_tui_sach = mysqli_query($connect, $sql_tui_sach);
+                $count_tui_sach = mysqli_fetch_assoc($query_tui_sach);
+                $tong_tui_sach = $count_tui_sach['tong_tui_sach'];
 
-            // $sql_vay = "SELECT * FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%váy%'";
-            // $query_vay = mysqli_query($conn, $sql_vay);
-            // $count_vay = mysqli_num_rows($query_vay);
+                $sql_vay = "SELECT COUNT(*) as tong_vay FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like '%váy%'";
+                $query_vay = mysqli_query($connect, $sql_vay);
+                $count_vay = mysqli_fetch_assoc($query_vay);
+                $tong_vay = $count_vay['tong_vay'];
 
-            // $sql_giay = "SELECT ten_hh FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like 'giày'";
-            // $query_giay = mysqli_query($conn, $sql_giay);
-            // $count_giay = mysqli_num_rows($query_giay);
+                $sql_giay = "SELECT COUNT(*) as tong_giay FROM hang_hoa JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE loai.ten_loai like 'giày'";
+                $query_giay = mysqli_query($connect, $sql_giay);
+                $count_giay = mysqli_fetch_assoc($query_giay);
+                $tong_giay = $count_giay['tong_giay'];
 
-            ?>
+                ?>
+                <script>
+                    var xValues = ["Áo Thun", "Áo Sơ Mi", "Áo Len", "Áo Khoác", "Quần", "Túi Xách", "Giày", "Đầm / Váy"];
+                    var yValues = [<?php echo $tong_ao_thun . ',' .  $tong_so_mi . ',' . $tong_ao_len . ',' . $tong_ao_khoac . ',' . $tong_quan . ',' . $tong_tui_sach . ',' . $tong_giay . ',' . $tong_vay ?>];
+                    var barColors = [
+                        "#b91d47",
+                        "#00aba9",
+                        "#2b5797",
+                        "#e8c3b9",
+                        "#1e7145",
+                        "#1ef45",
+                        "#C539B4",
+                        "#F5D5AE"
+                    ];
 
-            <!-- <link rel="stylesheet" href="../../content/css/hanghoaadminn.css"> -->
+                    new Chart("myChart", {
+                        type: "pie",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                backgroundColor: barColors,
 
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
 
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-            <script src="//cdnjs.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-            </head>
-
-            <div class="add-text">
-                <h2>THỐNG KÊ ĐƠN HÀNG <span></span></h2>
-            </div>
-            <div id="myfirstchart" style="height: 250px;"></div>
-            <?php
-
-            $items = thong_ke_hang_hoa();
-            ?>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    thongke();
-
-                  var char=  new Morris.Line({
-                        // ID of the element in which to draw the chart.
-                        element: 'myfirstchart',
-                        // Chart data records -- each entry in this array corresponds to a point on
-                        // the chart.
-                        // data: [{
-                        //         year: '2021-10',
-                        //         order: 5,
-                        //         sales: 100000,
-                        //         quantity: 20
-                        //     },
-
-                        //     // { year: '2009', value: 10 },
-                        //     // { year: '2010', value: 5 },
-                        //     // { year: '2011', value: 5 },
-                        //     // { year: '2012', value: 20 }
-                        // ],
-                        // The name of the data record attribute that contains x-values.
-                        xkey: 'date',
-                        // A list of names of data record attributes that contain y-values.
-                        ykeys: ['date','order', 'sales'],
-                        // Labels for the ykeys -- will be displayed when you hover over the
-                        // chart.
-                        labels: ['Đơn hàng', 'Doanh thu', ]
-                    });
-                    function thongke(){
-                        var text='365 ngày qua';
-                 
-                        $.ajax({
-                            url:"thongke.php",
-                            method:"POST",
-                            dataType:"JSON",
-                            success:function(data){
-                                char.setData(data);
-                                $('#text-date').text(text);
+                                text: "Thống kê hàng hoá"
                             }
-                        });
-                    }
-                });
-            </script>
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <?php
+                        },
 
-            $items = thong_ke_hang_hoa();
-            ?>
-            <script type="text/javascript">
-                google.charts.load("current", {
-                    packages: ["corechart"]
-                });
-                google.charts.setOnLoadCallback(drawChart);
-                google.charts.addClass("back");
-
-                function drawChart() {
-                    var data = google.visualization.arrayToDataTable([
-                        ['Loại', 'Số Lượng'],
-                        <?php
-                        foreach ($items as $item) {
-                            echo "['$item[ten_loai]',     $item[so_luong]],";
-                        }
-                        ?>
-                    ]);
-
-                    var options = {
-                        title: 'TỶ LỆ HÀNG HÓA',
-                        is3D: true,
-                    };
-
-                    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                    chart.draw(data, options);
-                }
-            </script>
-
-            <div class="add-text">
-                <h2>BIỂU ĐỒ THỐNG KÊ</h2>
+                    });
+                </script>
             </div>
-
-            <div id="piechart_3d" style="width: 100%; height: 500px; text-align:center"></div>
-            <div class="form-group" style=" text-align: left;">
-                <!-- <button type="submit" style=" text-align: left;"><a href="index.php?list"   >THỐNG KÊ</a></button> -->
-            </div>
-
-
         </div>
-    </div>
     <hr style="height: 3px; background-color: white; width: 95%;text-align: center;margin: 0 auto;">
     <div class="row-content-bot">
         <div class="list-chart">

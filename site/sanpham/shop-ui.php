@@ -1,7 +1,23 @@
 <head>
     <link rel="stylesheet" href="../../content/css/shops.css">
+<link rel="stylesheet" href="../../content/css/home_respons.css">
+
     <style>
-       
+       .box-content-fot {
+
+    width: 90%;}
+    .text-content-fot {
+    
+    z-index: 1;
+    position: absolute;}
+    .img-fot1, .img-fot2 {
+
+    height: 35rem;
+    
+    width: 18%;}
+    .pagination {
+        justify-content: center;
+    flex-wrap: wrap;}
     </style>
 </head>
 <div class="text-animation">
@@ -9,7 +25,7 @@
 
 </div>
 <div class="hot-sale">
-                    <h2><strong> <?php if(isset($tendm)){ print_r($tendm);}else{
+                    <h2><strong style="text-transform:uppercase ;font-size:0.9em"> <?php if(isset($tendm)){ print_r($tendm);}else{
                         echo "Sản phẩm";
                     } ?></strong></h2>
                 </div>

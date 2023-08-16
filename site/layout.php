@@ -6,14 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="content/fontawesome-free-6.1.1-web/css/all.css">
-    <link rel="stylesheet" href="content/MergeBlack.woff">
+    <link rel="stylesheet" href="content/Font/MergeBlack.woff">
+<link rel="stylesheet" href="content/css/home_respon.css">
+<link rel="stylesheet" href="content/css/respon_menu.css">
+<link rel="shortcut icon" href="../../content/imgs/logo_ne.png">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 
   <style>
-    header{
-        height: 100px;
+    .header_menu{
+        height: 93px;
         background-color: white;
+        box-shadow: 2px 2px grey;
     }
+    header{
+        background-color: white;
+
+    }
+    @font-face {
+    font-family: Mergeblack;
+    src: url(../content/Font/MergeBlack.woff);
+}
   </style>
 </head>
 <body>
@@ -24,7 +36,7 @@ require_once "../../dao/loai.php";
             
             ?>
     <div class="all">
-        <header>
+        <header class="header_menu">
             <?php include "layout/menu.php"?>
         </header>
         <main>

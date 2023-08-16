@@ -4,10 +4,10 @@
 <head>
     <title>Nhóm 4</title>
     <!-- <link rel="stylesheet" type="text/css" href="content/css/bootstrap.css" /> -->
-    <link href="../../content/css/slide.css" rel="stylesheet" />
+    <link href="../../content/css/slides.css" rel="stylesheet" />
     <link href="../../content/css/menu.css" rel="stylesheet" />
    
-
+    <link href="../../content/css/respon_menu.css" rel="stylesheet" />
     <link href="../../content/css/boostrap.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="../../content/fontawesome-free-6.1.1-web/css/all.css">
@@ -25,21 +25,141 @@
   height: 19px;
   font-size: 12px;
 }
+.navbar-expand-lg .navbar-collapse ul li a {
+    font-size: 17px;
+}
+#input_search {
+   
+    transform: translate(-254px, 0%);
+    width: 270px ;
+}
+
+
+.header_section .container-fluid {
+    height: 93px ;
+    background: white;
+}
+.navbar {
+    height: 93px ;
+}
+.navbar-nav{
+    padding-right: 6%;
+}
+.navbar-brands{
+    display: none;
+}
+.nav_menu{
+    display: none;
+}
+.checkbtn{
+    display: none;
+
+}
+.nav_menu_mb{
+    display: none;
+}
+
     </style>
 </head>
 
 <body>
-    <header class="header_section">
+
+    <div class="header_section " >
+    <div class="nav_menu_mb">
+
+
+<input type="checkbox" class="check" id="check_menu_mb" hidden>
+<label for="check_menu_mb" class="checkbtn"><i class="fa-solid fa-bars"></i></label>
+<label for="check_menu_mb" class="nav_overplay"></label>
+<nav class="nav_menu">
+
+    <ul>
+        <li class="icon_close"><label for="check_menu_mb"><i class="fa-solid fa-circle-xmark"></i></label>
+        </li>
+        <li class="languages">
+            <a href="../taikhoan/dangnhap.php" style="color: #FAC437">Đăng nhập </a>
+            <span style="color: White;">|</span>
+            <a href="../taikhoan/dangky.php">Đăng ký </a>
+        </li>
+        <li><a href="../trangchinh/">TRANG CHỦ</a></li>
+        <!-- <li><a href="">ALL SẢN PHẨM</a></li> -->
+       
+        <?php
+                    $listdanhmuc = loai_select_all();
+                    foreach ($listdanhmuc as $dm) {
+
+      
+                        echo '
+                              <li><a href="../sanpham/shop.php?ma_loai=' . $dm['ma_loai'] . '" >' . $dm['ten_loai'] . '</a></li>';
+                              
+                            
+                    }
+                    ?>
+        <!-- <li><a href="">KHUYẾN MÃI</a></li> -->
+        <li><a href="../trangchinh?gioi_thieu">GIỚI THIỆU</a></li>
+        <li><a href="../trangchinh?lien_he">LIÊN HỆ</a></li>
+        <li><a href="../tintuc/tintuc.php">TIN TỨC</a></li>
+      
+
+        <li>
+
+            <a href="" class="social"> <i class="fa-brands fa-facebook-f" style="color: black"></i></a>
+            <a href="" class="social"><i class="fa-brands fa-twitter" style="color: black"></i></a>
+            <a href="" class="social"><i class="fab fa-instagram"  style="color: black"></i></a>
+
+        </li>
+
+    </ul>
+   
+</nav>
+<a class="navbar-brands" href="../trangchinh/" >
+
+<img src="../../content/imgs/logo1-removebg-preview.png" alt="" style="color: black;" width="100%">
+
+</a>
+<div class="cart">
+<a href="../giohang/gio_hang.php" class="cart_contains position-relative">
+                        <?php 
+                  $number =0;
+                  
+                  if(isset($_SESSION['cart'])) {
+                    $cart = $_SESSION['cart'];
+                    foreach($cart as $value){
+                      $number += $value['so_luong'];
+                    }
+
+                  }
+                ?>
+                <span  id="so_luongs" style="  
+    font-size: 12px; border-radius: 50% !important;     margin-top: -16px;
+    margin-left: 24px;background-color: #F6F6C9 !important;" class="so_luongs d-inline-block text-center  position-absolute rounded-circle "><?=$number ?></span>
+                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+                        </a>
+</div>
+<div class="tk_mb">
+<form class="search" action="../sanpham/shop.php" method="get">
+                            <input type="search" name="search" id="input_search" class="form-control rounded"
+                                placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon"
+                                style="filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));" />
+                            <!-- <div class="input-group-prepend">
+                                <a href=""><button class="btn btn_search" type="submit"><i
+                                            class="fas fa-search"></i></button></a>
+                            </div> -->
+                        </form>
+</div>
+</div>
         <div id="header_sections"></div>
+      
         <div class="container-fluid" id="container-fluid">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="../trangchinh/">
+                <a class="navbar-brand" href="../trangchinh/" >
 
-                    <img src="../../content/imgs/logo1.jpg" alt="">
+                    <img src="../../content/imgs/logo1-removebg-preview.png" alt="" style="color: black;" width="100%">
 
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav" style="padding-right:40px">
+                    <ul class="navbar-nav" style="">
                         <li class="nav-item " style="z-index: 200;">
                             <a class="nav-link active" href="../trangchinh/">Trang chủ</a>
                         </li>
@@ -182,7 +302,7 @@
                 </div>
             </nav>
         </div>
-    </header>
+                </div>
     <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 
     <script src="../../content/js/menufixed.js"></script>

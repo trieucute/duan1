@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="../../content/css/shops.css">
+<link rel="stylesheet" href="../../content/css/home_respons.css">
+
 <link rel="stylesheet" href="../../content/css/main.css">
+<!-- <link rel="stylesheet" href="../../content/css/responsive_home.css"> -->
+
 
 <style>
     .mover{

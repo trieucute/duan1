@@ -24,7 +24,9 @@ if(isset($_POST['id'])){
     case "xl":
       $id_don_hang = $id_hh +3;
       break;
-    
+      case "xxl":
+        $id_don_hang = $id_hh +4;
+        break;
     default:
       $id_don_hang = $id_hh;
       break;

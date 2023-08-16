@@ -1,9 +1,11 @@
 <head>
 <link rel="stylesheet" href="../../content/Font/stylesheet.css">
+<link rel="stylesheet" href="../../content/css/home_respons.css">
+
     <style>
      
     .tin-container{
-        width: 80%;
+        width: 85%;
         margin: 0 auto;
     }
         .tieude>h2 {
@@ -46,7 +48,7 @@
         }
 
         .tin>.content-text-tin>h1 {
-            font-size: 1.5em;
+            font-size: 1.4em;
             /* width: 10.5em;
             height: 3.5em; */
     font-family: Mergeblack;
@@ -96,6 +98,14 @@
             background-color: black;
             color: white;
         }
+        .content-text-tin {
+    margin-left: 1em;
+    display: flex;
+    font-family: 'Signika Negative';
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: space-around;
+}
     </style>
 </head>
 <div class="tin-container">

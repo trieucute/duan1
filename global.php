@@ -8,7 +8,7 @@ $ADMIN_URL = "$ROOT_URL/admin"; //đườnf dẫn vào phần quản trị
 $SITE_URL = "$ROOT_URL/site"; //đường dẫn vào ohần site
 
 // đường dẫn chứa hình khi upload
-$IMAGE_DIR = $_SERVER["DOCUMENT_ROOT"] . "$ROOT_URL/content/imgs/";
+// $IMAGE_DIR = $_SERVER["DOCUMENT_ROOT"] . "$ROOT_URL/content/imgs/";
 $img_path="../../content/imgs/";
 
 // 2 biến toàn cục để chia sẻ giữa controller và view
@@ -52,9 +52,9 @@ function get_cookie($name){
  * Các trang php yêu cầu user đăng nhập sẽ gọi hàm này ở đầu file
  */
 function  check_login(){
-    global $SITE_URL;
+    // global $SITE_URL;
     if(isset($_SESSION['user'])){
-        if(($_SESSION['user']['vai_tro'] == 'admin' ) || ($_SESSION['user']['vai_tro'] == 'nhanvien' )){
+        if($_SESSION['user']['vai_tro'] == 'admin'  || $_SESSION['user']['vai_tro'] == 'Nhân viên'){
             return;
         }
         if(strpos($_SERVER["REQUEST_URI"], '/admin/') == FALSE){
@@ -62,5 +62,6 @@ function  check_login(){
         }
     }
     $_SESSION['request_uri'] = $_SERVER["REQUEST_URI"];
-    header("location: $SITE_URL/taikhoan/dangnhap.php");
+  
+    header('Location: /404/');
 }

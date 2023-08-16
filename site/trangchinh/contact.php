@@ -19,7 +19,7 @@
             float: left;
         }
        .map iframe{
-            height: 670px;
+            height: 600px;
             margin: 0px 0px 0px 30px;
             width: 90%;
         }
@@ -30,7 +30,7 @@
         }
         .in4-text p{
             font-family: 'Signika Negative';
-
+            margin: 5px 0;
             color: black;
             font-size: 20px;    
         }
@@ -70,14 +70,32 @@
             border-radius: 10px;
             width: 100%;
         }
-  
+        @media only screen and (min-width: 577px) and (max-width: 768px){
+            .map{
+                display:none;
+
+            }
+            .in4{
+                width:100%;
+                justify-content: center;
+                float: right;
+                padding-left: 40px;
+    
+            }
+            .row{
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
   
     <div class="main-ct">
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.443661450984!2d106.62563971462322!3d10.853821092269094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bee0b0ef9e5%3A0x5b4da59e47aa97a8!2sQuang%20Trung%20Software%20City!5e0!3m2!1sen!2s!4v1668695799579!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.443661450984!2d106.62563971462322!3d10.853821092269094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bee0b0ef9e5%3A0x5b4da59e47aa97a8!2sQuang%20Trung%20Software%20City!5e0!3m2!1sen!2s!4v1668695799579!5m2!1sen!2s" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="in4">
             <div class="in4-text">
@@ -89,7 +107,7 @@
                 <p>Cảm ơn bạn đã quan tâm. Nếu bạn muốn liên lạc với chúng tôi hãy liên lạc với chúng  tôi theo form bên dưới. Chúng tôi sẽ hồi đáp nhanh nhất đến bạn.</p>
             </div>
             <div class="in4-form">
-                <h1>Gửi thắc mắc cho chúng tôi</h1>
+                <h1 style="font-size: 1.7em;">Gửi thắc mắc cho chúng tôi</h1>
                 <form action="../trangchinh/?lien_he" method="post">
                     <label for="name">Họ tên *</label><br>
                     <input name="ho_ten" type="text" placeholder="" value=""><br>

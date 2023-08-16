@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../content/css/slide.css">
+    <link rel="stylesheet" href="../../content/css/slides.css">
+	<style>
+		.carousel-caption {
+    top: -10px !important;
+		}
+	</style>
 </head>
 <body>
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
 		
 		<div class="carousel-inner">
-			<div class="carousel-item active" style="height: 42rem; width: 100%;">
-				<img class="img-fluid" src="../../content/imgs/banner1.webp" alt="Image">
+			<div class="carousel-item active" style="height: 39rem; width: 100%;">
+				<img class="" src="../../content/imgs/banner1.webp" alt="Image">
 				<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
 					<div class="p-3" style="max-width: 700px;">
 						<h4 class="text-light text-uppercase font-weight-medium mb-3">Nhận voucher 10% khi mua sản phẩm đầu tiên</h4>
@@ -21,8 +26,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item" style="height: 42rem;width: 100%;">
-				<img class="img-fluid" src="../../content/imgs/banner2.jpg" alt="Image">
+			<div class="carousel-item" style="height: 39rem;width: 100%;">
+				<img class="" src="../../content/imgs/banner2.jpg" alt="Image">
 				<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
 					<div class="p-3" style="max-width: 700px;">
 						<h4 class="text-light text-uppercase font-weight-medium mb-3">Nhận voucher 10% khi mua sản phẩm đầu tiên</h4>
@@ -31,8 +36,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item" style="height: 42rem;width: 100%;">
-				<img class="img-fluid" src="../../content/imgs/banner4.jpg" alt="Image">
+			<div class="carousel-item" style="height: 39rem;width: 100%;">
+				<img class="" src="../../content/imgs/banner4.jpg" alt="Image">
 				<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
 					<div class="p-3" style="max-width: 700px;">
 						<h4 class="text-light text-uppercase font-weight-medium mb-3">Nhận voucher 10% khi mua sản phẩm đầu tiên</h4>

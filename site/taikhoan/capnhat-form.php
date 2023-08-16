@@ -7,7 +7,7 @@
                 <div class="col-sm-8">
                 <div class="form-group">
                         <label>Email</label>
-                        <input name="email" class="form-controls" value="<?=$email?>">
+                        <input name="email" class="form-controls" value="<?php if(isset($email)){echo $email;}?>" readonly >
                     </div>
                     <div class="form-group">
                         <label>Họ và tên</label>
@@ -19,6 +19,7 @@
                     </div><div class="form-group">
                         <label>SĐT</label>
                         <input name="SDT" class="form-controls" value="<?=$SDT?>" type="tel" >
+                        <div class="error" style="color: #C60000;       font-family: Mergeblack; font-weight: bold;" > <?php echo isset($error['SDT']) ? $error['SDT'] : ''; ?></div>
                     </div>
                     <div class="form-group">
                         <label>Hình</label>

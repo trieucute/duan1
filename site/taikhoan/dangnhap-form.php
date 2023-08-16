@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="../../content/css/login.css">
+<link rel="stylesheet" href="../../content/css/home_respons.css">
+
 <style>
+	
+
+
 	#container-login input {
 	background-color: #EDEDED;
 	border: none;
@@ -9,6 +14,31 @@
 	
     border-radius: 10px;
 	width: 100%;
+}
+.form-container form h1, .h1 {
+    font-size: 2.2rem !important;
+}
+.container-login {
+    /* background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto; */
+    width: 55%;
+}
+#container-login form {
+    /* background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    padding: 0 30px !important;
+    /* height: 100%;
+    text-align: center; */
+}
+.social-container {
+    margin: 10px 0 !important;
 }
 </style>
 <div class="container-login " id="container-login">
@@ -27,7 +57,8 @@
             <input name="mat_khau2" type="password" placeholder="Xác nhận mật khẩu"  minlength="8">
 
 			<input type="text" name="ma_user" id="" hidden>
-			<input name="vai_tro" value="khachhang" type="hidden">
+			<input name="vai_tro" value="Khách hàng" type="hidden">
+
             <input name="kich_hoat" value="0" type="hidden">
 			<button name="dang-ky" style="margin-top: 10px;" type="submit">ĐĂNG KÝ</button>
 		</form>
@@ -48,6 +79,7 @@
 			<input name="ma_user" value="<?=$ma_user?>" hidden>
 			<a href="../taikhoan/quenmk.php">Quên mật khẩu?</a>
 			<button name="dang-nhap"style="margin-top: 10px;">Đăng nhập</button>
+			<p class="dk_mobile" style=" display:none"><a href="../taikhoan/dangky.php" style="color:red; font-size:16px;"> Đăng ký</a> nếu bạn chưa có tài khoản</p>
 		</form>
 	</div>
 	<div class="overlay-container">

@@ -8,6 +8,17 @@ extract($_REQUEST);
 $VIEW_NAME="taikhoan/doimk-form.php";
 
 if(exist_param("btn_change")){
+    if (empty($_POST['mat_khau'])){
+        $error['mat_khau'] = 'Bạn chưa nhập mật khẩu ';
+    }
+    
+    if (empty($_POST['mat_khau2'])){
+        $error['mat_khau2'] = 'Bạn chưa nhập mật khẩu mới';
+    }
+     if (empty($_POST['mat_khau3'])){
+        $error['mat_khau3'] = 'Bạn chưa nhập xác nhận mật khẩu';
+    }
+    if( $mat_khau!= "" && $mat_khau2 != "" && $mat_khau3!= "" ){
     if($mat_khau2 != $mat_khau3){
         $thongbao= "Xác nhận mật khẩu mới không đúng!";
     }
@@ -34,19 +45,23 @@ if(exist_param("btn_change")){
    
            if (decryptthis($user['mat_khau'], $key) == $mat_khau) {
             
-                
+        
                 try {
+                
+
+                   
                 $mat_khau2 = $_POST['mat_khau2'];
               $mat_khau2 = trim(encryptthis($mat_khau2, $key));
 
                     khach_hang_change_password($ma_user, $mat_khau2);
                     $thongbao= "Đổi mật khẩu thành công!";
                 } 
+           
                 catch (Exception $exc) {
                     $thongbao= "Đổi mật khẩu thất bại !";
                     
                 }
-            
+             
             }
             else{
                 // var_dump($user);
@@ -57,6 +72,7 @@ if(exist_param("btn_change")){
             // $thongbao= "Sai mã đăng nhập!";
         }        
     }
+}
 }
 
 
